@@ -1,0 +1,17 @@
+{
+  "buildCommand": "npm install && cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "installCommand": "npm install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/api/auth/:path*", "destination": "/api/auth/:path*" },
+    { "source": "/api/transactions/:path*", "destination": "/api/transactions" },
+    { "source": "/api/categories/:path*", "destination": "/api/categories" },
+    { "source": "/api/accounts/:path*", "destination": "/api/accounts" },
+    { "source": "/api/budgets/:path*", "destination": "/api/budgets" },
+    { "source": "/api/reports/:path*", "destination": "/api/reports" },
+    { "source": "/api/snowball-debts/:path*", "destination": "/api/snowball-debts" },
+    { "source": "/api/ai/:path*", "destination": "/api/ai/:path*" },
+    { "source": "/((?!api).*)", "destination": "/index.html" }
+  ]
+}
