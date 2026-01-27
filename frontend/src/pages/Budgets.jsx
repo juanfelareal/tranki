@@ -2,8 +2,12 @@ import { useState, useEffect } from 'react';
 import { PiggyBank, AlertCircle, CheckCircle, TrendingUp, Edit2, Save, X, Lightbulb } from 'lucide-react';
 import { budgetsAPI, categoriesAPI } from '../utils/api';
 import { formatCOP, formatNumber, getCurrentPeriod, formatMonth, parseCOPInput } from '../utils/formatters';
+import { useSubscription } from '../hooks/useSubscription';
+import UpgradePrompt from '../components/UpgradePrompt';
 
 const Budgets = () => {
+  const { isPro, loading: subLoading, upgrade } = useSubscription();
+
   const [monthlyBudget, setMonthlyBudget] = useState(null);
   const [categoryBudgets, setCategoryBudgets] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -96,6 +100,20 @@ const Budgets = () => {
   const totalSpent = comparison.reduce((sum, c) => sum + (c.spent || 0), 0);
   const totalBudgeted = comparison.reduce((sum, c) => sum + (c.budget || 0), 0);
   const monthlyStatus = getStatusInfo(totalSpent, monthlyBudget?.total_budget);
+
+  if (!subLoading && !isPro) {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold text-primary tracking-tight">Presupuesto</h1>
+          <p className="text-muted mt-1">{formatMonth(month, year)}</p>
+        </div>
+        <div className="glass-card border border-border/50 rounded-2xl">
+          <UpgradePrompt feature="Presupuestos" onUpgrade={upgrade} />
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (

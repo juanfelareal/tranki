@@ -12,7 +12,6 @@ import categoryRoutes from './src/routes/categories.js';
 import budgetRoutes from './src/routes/budgets.js';
 import reportRoutes from './src/routes/reports.js';
 import accountRoutes from './src/routes/accounts.js';
-import aiRoutes from './src/routes/ai.js';
 import snowballDebtRoutes from './src/routes/snowballDebts.js';
 
 const app = express();
@@ -31,7 +30,6 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/budgets', budgetRoutes);
 app.use('/api/reports', reportRoutes);
 app.use('/api/accounts', accountRoutes);
-app.use('/api/ai', aiRoutes);
 app.use('/api/snowball-debts', snowballDebtRoutes);
 
 // Health check

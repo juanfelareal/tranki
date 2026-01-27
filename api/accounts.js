@@ -1,4 +1,5 @@
 import { withAuth } from './_lib/auth.js';
+import { getUserPlan } from './_lib/subscription.js';
 
 async function handler(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -80,6 +81,20 @@ async function handler(req, res) {
     if (req.method === 'POST') {
       const { name, type, icon, color, initial_balance } = req.body;
       if (!name) return res.status(400).json({ error: 'name is required' });
+
+      // Limitar a 1 cuenta para plan free
+      const plan = await getUserPlan(userId);
+      if (plan !== 'pro') {
+        const { count } = await supabase
+          .from('accounts')
+          .select('id', { count: 'exact', head: true });
+        if (count >= 1) {
+          return res.status(403).json({
+            error: 'El plan gratuito permite solo 1 cuenta. Actualiza a Pro para crear más.',
+            code: 'PRO_REQUIRED'
+          });
+        }
+      }
       const validTypes = ['cash', 'bank', 'credit_card', 'savings', 'investment', 'other'];
       const accountType = validTypes.includes(type) ? type : 'cash';
       const { data, error } = await supabase.from('accounts').insert({ user_id: userId, name, type: accountType, icon: icon || '💰', color: color || '#6366F1', balance: initial_balance || 0, currency: 'COP' }).select().single();

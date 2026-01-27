@@ -17,6 +17,19 @@ async function handler(req, res) {
       .single();
 
     if (existingAccount) {
+      // Asegurar que tenga suscripción
+      const { data: existingSub } = await req.supabase
+        .from('subscriptions')
+        .select('id')
+        .eq('user_id', userId)
+        .single();
+
+      if (!existingSub) {
+        await req.supabase
+          .from('subscriptions')
+          .insert({ user_id: userId, plan: 'free', status: 'active' });
+      }
+
       return res.json({ message: 'User already set up', account_id: existingAccount.id });
     }
 
@@ -39,6 +52,11 @@ async function handler(req, res) {
       console.error('Error creating default account:', accountError);
       throw accountError;
     }
+
+    // Crear suscripción free por defecto
+    await req.supabase
+      .from('subscriptions')
+      .insert({ user_id: userId, plan: 'free', status: 'active' });
 
     return res.status(201).json({
       message: 'User setup complete',

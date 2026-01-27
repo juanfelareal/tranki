@@ -1,12 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   User, Download, Upload, Trash2, Moon, Sun, Database,
-  Cloud, AlertTriangle, Check, Info, Sparkles
+  Cloud, AlertTriangle, Check, Info, Sparkles, Crown, ArrowRight, ExternalLink
 } from 'lucide-react';
 import { transactionsAPI } from '../utils/api';
+import { useSubscription } from '../hooks/useSubscription';
+import { useSearchParams } from 'react-router-dom';
 
 const Settings = () => {
   const [theme, setTheme] = useState('light');
+  const { subscription, isPro, loading: subLoading, upgrade, manageSubscription, refresh } = useSubscription();
+  const [searchParams] = useSearchParams();
+  const [upgradeMessage, setUpgradeMessage] = useState('');
+
+  useEffect(() => {
+    const upgradeStatus = searchParams.get('upgrade');
+    if (upgradeStatus === 'success') {
+      setUpgradeMessage('Tu plan ha sido actualizado a Pro.');
+      refresh();
+      setTimeout(() => setUpgradeMessage(''), 5000);
+    } else if (upgradeStatus === 'cancel') {
+      setUpgradeMessage('El proceso de pago fue cancelado.');
+      setTimeout(() => setUpgradeMessage(''), 5000);
+    }
+  }, [searchParams, refresh]);
   const [exporting, setExporting] = useState(false);
   const [exportSuccess, setExportSuccess] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -67,6 +84,99 @@ const Settings = () => {
       <div>
         <h1 className="text-3xl font-bold text-primary tracking-tight">Configuración</h1>
         <p className="text-muted mt-1">Personaliza tu experiencia</p>
+      </div>
+
+      {/* Upgrade Message */}
+      {upgradeMessage && (
+        <div className={`px-5 py-4 rounded-2xl flex items-center gap-3 animate-fadeIn ${
+          searchParams.get('upgrade') === 'success'
+            ? 'bg-income/10 border border-income/30'
+            : 'bg-amber-50 border border-amber-200'
+        }`}>
+          {searchParams.get('upgrade') === 'success' ? (
+            <Check size={18} className="text-income" />
+          ) : (
+            <Info size={18} className="text-amber-500" />
+          )}
+          <p className="text-sm font-medium text-primary">{upgradeMessage}</p>
+        </div>
+      )}
+
+      {/* Subscription Section */}
+      <div className="glass-card border border-border/50 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-border/50 bg-black/[0.01]">
+          <h3 className="font-semibold text-primary flex items-center gap-2.5">
+            <div className={`p-2 rounded-xl ${isPro ? 'bg-gradient-to-br from-amber-400 to-orange-500' : 'bg-primary/5'}`}>
+              <Crown size={16} className={isPro ? 'text-white' : 'text-primary'} />
+            </div>
+            Suscripción
+          </h3>
+        </div>
+        <div className="p-6">
+          {subLoading ? (
+            <div className="h-20 shimmer rounded-xl" />
+          ) : (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="flex items-center gap-2.5">
+                    <p className="font-semibold text-lg text-primary">
+                      Plan {isPro ? 'Pro' : 'Gratuito'}
+                    </p>
+                    <span className={`px-2.5 py-1 text-[10px] font-bold tracking-wider rounded-full ${
+                      isPro
+                        ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-white'
+                        : 'bg-black/5 text-muted'
+                    }`}>
+                      {isPro ? 'PRO' : 'FREE'}
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted mt-0.5">
+                    {isPro ? '$2.99 USD/mes' : 'Funcionalidades básicas'}
+                  </p>
+                  {isPro && subscription?.cancel_at_period_end && (
+                    <p className="text-xs text-amber-600 mt-1">
+                      Se cancelará al final del período actual
+                    </p>
+                  )}
+                </div>
+
+                {isPro ? (
+                  <button
+                    onClick={manageSubscription}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-white/80 backdrop-blur-sm border border-border/50 rounded-full font-medium text-secondary hover:text-primary hover:border-primary btn-scale transition-all"
+                  >
+                    <ExternalLink size={16} />
+                    Administrar
+                  </button>
+                ) : (
+                  <button
+                    onClick={upgrade}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-semibold btn-scale shadow-md hover:shadow-lg transition-all"
+                  >
+                    <Crown size={16} />
+                    Actualizar a Pro
+                    <ArrowRight size={14} />
+                  </button>
+                )}
+              </div>
+
+              {!isPro && (
+                <div className="mt-4 p-4 bg-black/[0.02] rounded-xl">
+                  <p className="text-sm font-medium text-primary mb-2">El plan Pro incluye:</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {['Cuentas ilimitadas', 'Presupuestos', 'Reportes y analíticas', 'Bola de nieve (deudas)'].map(feature => (
+                      <div key={feature} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-income" />
+                        <span className="text-xs text-secondary">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Profile Section */}

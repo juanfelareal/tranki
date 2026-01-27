@@ -11,7 +11,8 @@
     { "source": "/api/budgets/:path*", "destination": "/api/budgets" },
     { "source": "/api/reports/:path*", "destination": "/api/reports" },
     { "source": "/api/snowball-debts/:path*", "destination": "/api/snowball-debts" },
-    { "source": "/api/ai/:path*", "destination": "/api/ai/:path*" },
+    { "source": "/api/stripe/:path*", "destination": "/api/stripe/:path*" },
+    { "source": "/api/subscription", "destination": "/api/subscription" },
     { "source": "/((?!api).*)", "destination": "/index.html" }
   ]
 }

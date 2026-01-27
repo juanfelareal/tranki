@@ -1,4 +1,5 @@
 import { withAuth } from './_lib/auth.js';
+import { getUserPlan } from './_lib/subscription.js';
 
 async function handler(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -7,6 +8,15 @@ async function handler(req, res) {
   const userId = req.user.id;
 
   try {
+    // Bloquear deudas para plan free
+    const plan = await getUserPlan(userId);
+    if (plan !== 'pro') {
+      return res.status(403).json({
+        error: 'La gestión de deudas requiere el plan Pro',
+        code: 'PRO_REQUIRED'
+      });
+    }
+
     // GET /api/snowball-debts/summary
     if (pathParts[0] === 'summary' && req.method === 'GET') {
       const { data: debts } = await supabase.from('snowball_debts').select('*').eq('status', 'active').order('current_balance');

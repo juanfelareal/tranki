@@ -13,18 +13,21 @@ import {
   Wallet,
   Sparkles,
   Landmark,
-  LogOut
+  LogOut,
+  Lock,
+  Crown
 } from 'lucide-react';
 import AddTransactionModal from './AddTransactionModal';
 import { useAuth } from '../contexts/AuthContext';
+import { useSubscription } from '../hooks/useSubscription';
 
 const navigation = [
   { name: 'Dashboard', path: '/app', icon: LayoutDashboard },
   { name: 'Transacciones', path: '/app/transactions', icon: ArrowUpDown },
   { name: 'Cuentas', path: '/app/cuentas', icon: Wallet },
-  { name: 'Presupuesto', path: '/app/presupuesto', icon: PiggyBank },
-  { name: 'Deudas', path: '/app/deudas', icon: Landmark },
-  { name: 'Reportes', path: '/app/reportes', icon: BarChart3 },
+  { name: 'Presupuesto', path: '/app/presupuesto', icon: PiggyBank, proOnly: true },
+  { name: 'Deudas', path: '/app/deudas', icon: Landmark, proOnly: true },
+  { name: 'Reportes', path: '/app/reportes', icon: BarChart3, proOnly: true },
   { name: 'Categorías', path: '/app/categorias', icon: Tags },
   { name: 'Configuración', path: '/app/configuracion', icon: Settings },
 ];
@@ -33,6 +36,7 @@ const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { signOut, user } = useAuth();
+  const { isPro } = useSubscription();
   const [showAddModal, setShowAddModal] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -90,12 +94,21 @@ const Layout = () => {
         }`}
       >
         <div className="flex flex-col h-full">
-          {/* Logo */}
-          <div className="h-16 flex items-center gap-2 px-6">
-            <div className="w-8 h-8 rounded-xl bg-gradient-balance flex items-center justify-center">
-              <Sparkles size={16} className="text-white" />
+          {/* Logo + Plan Badge */}
+          <div className="h-16 flex items-center justify-between px-6">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-xl bg-gradient-balance flex items-center justify-center">
+                <Sparkles size={16} className="text-white" />
+              </div>
+              <span className="text-xl font-bold tracking-tight text-primary">Tranki</span>
             </div>
-            <span className="text-xl font-bold tracking-tight text-primary">Tranki</span>
+            <span className={`px-2.5 py-1 text-[10px] font-bold tracking-wider rounded-full ${
+              isPro
+                ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-white'
+                : 'bg-black/5 text-muted'
+            }`}>
+              {isPro ? 'PRO' : 'FREE'}
+            </span>
           </div>
 
           {/* Navigation */}
@@ -104,6 +117,7 @@ const Layout = () => {
               {navigation.map((item) => {
                 const Icon = item.icon;
                 const active = isActive(item.path);
+                const showLock = item.proOnly && !isPro;
                 return (
                   <li key={item.path}>
                     <Link
@@ -116,7 +130,10 @@ const Layout = () => {
                       }`}
                     >
                       <Icon size={18} className={active ? '' : 'text-muted group-hover:text-primary'} />
-                      <span>{item.name}</span>
+                      <span className="flex-1">{item.name}</span>
+                      {showLock && (
+                        <Lock size={12} className={active ? 'text-white/60' : 'text-muted/50'} />
+                      )}
                     </Link>
                   </li>
                 );

@@ -6,8 +6,11 @@ import {
 } from 'lucide-react';
 import { snowballDebtsAPI } from '../utils/api';
 import { formatCOP, formatNumber, formatCompact, parseCOPInput } from '../utils/formatters';
+import { useSubscription } from '../hooks/useSubscription';
+import UpgradePrompt from '../components/UpgradePrompt';
 
 const SnowballDebt = () => {
+  const { isPro, loading: subLoading, upgrade } = useSubscription();
   const [debts, setDebts] = useState([]);
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -236,6 +239,20 @@ const SnowballDebt = () => {
 
   // Find the first active debt (the one being paid in snowball method)
   const activeDebtId = debts.find(d => d.status === 'active')?.id;
+
+  if (!subLoading && !isPro) {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold text-primary tracking-tight">Deudas</h1>
+          <p className="text-muted mt-1">Método bola de nieve</p>
+        </div>
+        <div className="glass-card border border-border/50 rounded-2xl">
+          <UpgradePrompt feature="Gestión de deudas" onUpgrade={upgrade} />
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (

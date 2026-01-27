@@ -1,4 +1,5 @@
 import { withAuth } from './_lib/auth.js';
+import { getUserPlan } from './_lib/subscription.js';
 
 async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
@@ -9,6 +10,15 @@ async function handler(req, res) {
   const supabase = req.supabase;
 
   try {
+    // Bloquear reportes para plan free
+    const plan = await getUserPlan(req.user.id);
+    if (plan !== 'pro') {
+      return res.status(403).json({
+        error: 'Los reportes requieren el plan Pro',
+        code: 'PRO_REQUIRED'
+      });
+    }
+
     // GET /api/reports/summary
     if (pathParts[0] === 'summary') {
       const { start_date, end_date } = req.query;

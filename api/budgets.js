@@ -1,4 +1,5 @@
 import { withAuth } from './_lib/auth.js';
+import { getUserPlan } from './_lib/subscription.js';
 
 async function handler(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -8,6 +9,15 @@ async function handler(req, res) {
   const userId = req.user.id;
 
   try {
+    // Bloquear presupuestos para plan free
+    const plan = await getUserPlan(userId);
+    if (plan !== 'pro') {
+      return res.status(403).json({
+        error: 'Los presupuestos requieren el plan Pro',
+        code: 'PRO_REQUIRED'
+      });
+    }
+
     // GET/POST /api/budgets/monthly
     if (pathParts[0] === 'monthly') {
       if (req.method === 'GET') {

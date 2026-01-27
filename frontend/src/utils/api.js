@@ -102,11 +102,6 @@ export const accountsAPI = {
   transfer: (data) => api.post('/accounts/transfer', data),
 };
 
-// AI API
-export const aiAPI = {
-  parseImage: (imageData) => api.post('/ai/parse-image', imageData),
-};
-
 // Snowball Debts API
 export const snowballDebtsAPI = {
   getAll: () => api.get('/snowball-debts'),
@@ -117,6 +112,13 @@ export const snowballDebtsAPI = {
   recordPayment: (id, data) => api.post(`/snowball-debts/${id}/pay`, data),
   getSummary: () => api.get('/snowball-debts/summary'),
   getPayments: (id) => api.get(`/snowball-debts/${id}/payments`),
+};
+
+// Subscription API
+export const subscriptionAPI = {
+  getStatus: () => api.get('/subscription'),
+  createCheckout: () => api.post('/stripe/create-checkout'),
+  createPortal: () => api.post('/stripe/portal'),
 };
 
 export default api;

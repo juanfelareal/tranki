@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import {
   Plus, Edit2, Trash2, X, Save, ArrowRightLeft,
-  Wallet, CreditCard, PiggyBank, Building2, Banknote, CircleDollarSign
+  Wallet, CreditCard, PiggyBank, Building2, Banknote, CircleDollarSign, Crown
 } from 'lucide-react';
 import { accountsAPI } from '../utils/api';
 import { formatCOP, formatNumber, parseCOPInput } from '../utils/formatters';
+import { useSubscription } from '../hooks/useSubscription';
 
 const ACCOUNT_TYPES = [
   { value: 'cash', label: 'Efectivo', icon: Banknote },
@@ -24,6 +25,7 @@ const COLORS = [
 ];
 
 const Accounts = () => {
+  const { isPro, upgrade } = useSubscription();
   const [accounts, setAccounts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -230,13 +232,23 @@ const Accounts = () => {
               <span className="hidden sm:inline">Transferir</span>
             </button>
           )}
-          <button
-            onClick={() => openModal()}
-            className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-full font-medium btn-scale shadow-md"
-          >
-            <Plus size={18} />
-            Nueva
-          </button>
+          {!isPro && accounts.length >= 1 ? (
+            <button
+              onClick={upgrade}
+              className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-medium btn-scale shadow-md"
+            >
+              <Crown size={18} />
+              Desbloquear más
+            </button>
+          ) : (
+            <button
+              onClick={() => openModal()}
+              className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-full font-medium btn-scale shadow-md"
+            >
+              <Plus size={18} />
+              Nueva
+            </button>
+          )}
         </div>
       </div>
 

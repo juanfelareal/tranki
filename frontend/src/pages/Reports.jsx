@@ -7,6 +7,8 @@ import {
 import { reportsAPI } from '../utils/api';
 import { formatCOP, formatCompact, getCurrentPeriod, formatMonth } from '../utils/formatters';
 import { useIsMobile } from '../hooks/useMediaQuery';
+import { useSubscription } from '../hooks/useSubscription';
+import UpgradePrompt from '../components/UpgradePrompt';
 
 // Paleta monocromática fintech
 const CHART_COLORS = [
@@ -15,6 +17,7 @@ const CHART_COLORS = [
 ];
 
 const Reports = () => {
+  const { isPro, loading: subLoading, upgrade } = useSubscription();
   const [period, setPeriod] = useState(getCurrentPeriod());
   const [summary, setSummary] = useState(null);
   const [categoryData, setCategoryData] = useState([]);
@@ -79,6 +82,20 @@ const Reports = () => {
     a.click();
     URL.revokeObjectURL(url);
   };
+
+  if (!subLoading && !isPro) {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold text-primary tracking-tight">Reportes</h1>
+          <p className="text-muted mt-1">Análisis detallado de tus finanzas</p>
+        </div>
+        <div className="glass-card border border-border/50 rounded-2xl">
+          <UpgradePrompt feature="Reportes y analíticas" onUpgrade={upgrade} />
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
