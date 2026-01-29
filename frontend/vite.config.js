@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  base: '/tranki/',
   plugins: [
     react(),
     VitePWA({
@@ -12,8 +13,8 @@ export default defineConfig({
         name: 'Tranki - Finanzas Personales',
         short_name: 'Tranki',
         description: 'Gestiona tus finanzas personales con tranquilidad',
-        theme_color: '#0A0A0A',
-        background_color: '#FAFAFA',
+        theme_color: '#047857',
+        background_color: '#F0FDF4',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',

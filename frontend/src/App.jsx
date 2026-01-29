@@ -18,7 +18,7 @@ import SnowballDebt from './pages/SnowballDebt';
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/tranki">
         <Routes>
           {/* Rutas públicas */}
           <Route path="/" element={<Landing />} />
