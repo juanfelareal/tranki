@@ -13,7 +13,7 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
 
       <p className="text-muted text-center max-w-sm mb-8">
         <span className="font-medium text-secondary">{feature}</span> está disponible con el complemento Pro.
-        Desbloquea todas las funcionalidades avanzadas por solo <span className="font-semibold text-primary">$20.000 COP</span> (pago único).
+        Desbloquea todas las funcionalidades avanzadas + actualizaciones futuras por solo <span className="font-semibold text-primary">$40.000 COP</span> (pago único).
       </p>
 
       <div className="space-y-4 w-full max-w-xs">
@@ -22,7 +22,7 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
           className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-2xl font-semibold btn-scale shadow-md hover:shadow-lg transition-all"
         >
           <Crown size={18} />
-          Desbloquear Pro — $20.000
+          Desbloquear Pro — $40.000
           <ArrowRight size={16} />
         </button>
 
@@ -42,6 +42,7 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
             'Presupuestos',
             'Reportes y analíticas',
             'Bola de nieve (deudas)',
+            'Actualizaciones futuras',
           ].map((item) => (
             <div key={item} className="flex items-center gap-2 px-3 py-2 bg-black/[0.02] rounded-xl">
               <div className="w-1.5 h-1.5 rounded-full bg-income flex-shrink-0" />

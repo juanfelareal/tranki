@@ -111,7 +111,7 @@ const Settings = () => {
                     className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-semibold btn-scale shadow-md hover:shadow-lg transition-all"
                   >
                     <Crown size={16} />
-                    Desbloquear Pro — $20.000
+                    Desbloquear Pro — $40.000
                     <ArrowRight size={14} />
                   </button>
                 )}
@@ -119,9 +119,9 @@ const Settings = () => {
 
               {!isPro && (
                 <div className="mt-4 p-4 bg-black/[0.02] rounded-xl">
-                  <p className="text-sm font-medium text-primary mb-2">Con Pro desbloqueas (pago único de $20.000):</p>
+                  <p className="text-sm font-medium text-primary mb-2">Con Pro desbloqueas (pago único de $40.000):</p>
                   <div className="grid grid-cols-2 gap-2">
-                    {['Cuentas ilimitadas', 'Presupuestos', 'Reportes y analíticas', 'Bola de nieve (deudas)'].map(feature => (
+                    {['Cuentas ilimitadas', 'Presupuestos', 'Reportes y analíticas', 'Bola de nieve (deudas)', 'Actualizaciones futuras'].map(feature => (
                       <div key={feature} className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-income" />
                         <span className="text-xs text-secondary">{feature}</span>
