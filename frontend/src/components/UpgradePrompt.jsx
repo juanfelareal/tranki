@@ -28,7 +28,7 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
 
         <div className="text-center">
           <p className="text-xs text-muted">
-            Cancela cuando quieras. Sin compromisos.
+            Compra segura a través de nuestra tienda.
           </p>
         </div>
       </div>

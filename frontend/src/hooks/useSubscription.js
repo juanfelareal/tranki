@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { subscriptionAPI } from '../utils/api';
 
+const SHOPIFY_URL = import.meta.env.VITE_SHOPIFY_PRODUCT_URL || 'https://gratu.co';
+
 export function useSubscription() {
   const [subscription, setSubscription] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -23,24 +25,8 @@ export function useSubscription() {
 
   const isPro = subscription?.plan === 'pro' && subscription?.status === 'active';
 
-  const upgrade = async () => {
-    try {
-      const res = await subscriptionAPI.createCheckout();
-      window.location.href = res.data.url;
-    } catch (error) {
-      console.error('Error creating checkout:', error);
-      alert('Error al iniciar el proceso de pago');
-    }
-  };
-
-  const manageSubscription = async () => {
-    try {
-      const res = await subscriptionAPI.createPortal();
-      window.location.href = res.data.url;
-    } catch (error) {
-      console.error('Error opening portal:', error);
-      alert('Error al abrir el portal de suscripción');
-    }
+  const upgrade = () => {
+    window.open(SHOPIFY_URL, '_blank');
   };
 
   return {
@@ -48,7 +34,6 @@ export function useSubscription() {
     loading,
     isPro,
     upgrade,
-    manageSubscription,
     refresh: loadSubscription,
   };
 }

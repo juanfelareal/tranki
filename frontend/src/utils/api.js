@@ -117,8 +117,6 @@ export const snowballDebtsAPI = {
 // Subscription API
 export const subscriptionAPI = {
   getStatus: () => api.get('/subscription'),
-  createCheckout: () => api.post('/stripe/create-checkout'),
-  createPortal: () => api.post('/stripe/portal'),
 };
 
 export default api;
