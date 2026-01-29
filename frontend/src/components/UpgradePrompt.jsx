@@ -3,7 +3,7 @@ import { Crown, ArrowRight } from 'lucide-react';
 const UpgradePrompt = ({ feature, onUpgrade }) => {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-6">
-      <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-6 shadow-lg">
+      <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-6 shadow-premium">
         <Crown size={36} className="text-white" />
       </div>
 
@@ -19,7 +19,7 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
       <div className="space-y-4 w-full max-w-xs">
         <button
           onClick={onUpgrade}
-          className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-2xl font-semibold btn-scale shadow-md hover:shadow-lg transition-all"
+          className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-2xl font-semibold btn-scale shadow-elevated hover:shadow-premium transition-all"
         >
           <Crown size={18} />
           Desbloquear Pro — $40.000
@@ -44,7 +44,7 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
             'Bola de nieve (deudas)',
             'Actualizaciones futuras',
           ].map((item) => (
-            <div key={item} className="flex items-center gap-2 px-3 py-2 bg-black/[0.02] rounded-xl">
+            <div key={item} className="flex items-center gap-2 px-3 py-2 bg-accent-emerald-50 rounded-xl">
               <div className="w-1.5 h-1.5 rounded-full bg-income flex-shrink-0" />
               <span className="text-xs text-secondary">{item}</span>
             </div>

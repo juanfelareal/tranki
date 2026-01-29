@@ -11,7 +11,6 @@ import {
   Menu,
   X,
   Wallet,
-  Sparkles,
   Landmark,
   LogOut,
   Lock,
@@ -53,12 +52,12 @@ const Layout = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Subtle gradient overlay */}
-      <div className="fixed inset-0 gradient-radial-yellow pointer-events-none" />
-      <div className="fixed inset-0 gradient-radial-green pointer-events-none" />
+      <div className="fixed inset-0 gradient-radial-mint pointer-events-none" />
+      <div className="fixed inset-0 gradient-radial-emerald pointer-events-none" />
 
       {/* Mobile header - with safe area support */}
       <div
-        className="lg:hidden fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-border/50 z-40 flex items-center justify-between px-4"
+        className="lg:hidden fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-b border-accent-emerald-100/50 z-40 flex items-center justify-between px-4"
         style={{
           paddingTop: 'calc(var(--safe-area-top, 0px) + 8px)',
           height: 'calc(56px + var(--safe-area-top, 0px))'
@@ -66,14 +65,14 @@ const Layout = () => {
       >
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 text-muted hover:text-primary rounded-full hover:bg-black/5 transition-all duration-75 touch-feedback touch-target"
+          className="p-2 text-muted hover:text-primary rounded-full hover:bg-accent-emerald-50 transition-all duration-75 touch-feedback touch-target"
         >
           {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
-        <span className="text-lg font-semibold tracking-tight">Tranki</span>
+        <span className="text-lg font-semibold tracking-tight text-primary">Tranki</span>
         <button
           onClick={() => setShowAddModal(true)}
-          className="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full hover:scale-105 transition-transform duration-75 touch-feedback"
+          className="w-10 h-10 flex items-center justify-center bg-gradient-emerald text-white rounded-xl hover:scale-105 transition-transform duration-75 touch-feedback shadow-elevated"
         >
           <Plus size={18} strokeWidth={2.5} />
         </button>
@@ -89,7 +88,7 @@ const Layout = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white/80 backdrop-blur-md border-r border-border/50 z-40 transform transition-transform duration-300 ease-out lg:translate-x-0 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white/90 backdrop-blur-xl border-r border-accent-emerald-100/50 z-40 transform transition-transform duration-300 ease-out lg:translate-x-0 ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -97,15 +96,15 @@ const Layout = () => {
           {/* Logo + Plan Badge */}
           <div className="h-16 flex items-center justify-between px-6">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-balance flex items-center justify-center">
-                <Sparkles size={16} className="text-white" />
+              <div className="w-8 h-8 rounded-xl bg-gradient-balance flex items-center justify-center shadow-elevated">
+                <span className="text-white font-bold text-sm">T</span>
               </div>
               <span className="text-xl font-bold tracking-tight text-primary">Tranki</span>
             </div>
             <span className={`px-2.5 py-1 text-[10px] font-bold tracking-wider rounded-full ${
               isPro
                 ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-white'
-                : 'bg-black/5 text-muted'
+                : 'bg-accent-emerald-100 text-accent-emerald-700'
             }`}>
               {isPro ? 'PRO' : 'FREE'}
             </span>
@@ -123,13 +122,13 @@ const Layout = () => {
                     <Link
                       to={item.path}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-75 touch-feedback touch-target ${
+                      className={`group flex items-center gap-3 px-3 py-2.5 rounded-2xl text-sm font-medium transition-all duration-75 touch-feedback touch-target ${
                         active
-                          ? 'bg-primary text-white shadow-sm'
-                          : 'text-secondary hover:bg-black/5 hover:text-primary'
+                          ? 'bg-gradient-emerald text-white shadow-elevated'
+                          : 'text-secondary hover:bg-accent-emerald-50 hover:text-primary'
                       }`}
                     >
-                      <Icon size={18} className={active ? '' : 'text-muted group-hover:text-primary'} />
+                      <Icon size={18} className={active ? '' : 'text-muted group-hover:text-accent-emerald-600'} />
                       <span className="flex-1">{item.name}</span>
                       {showLock && (
                         <Lock size={12} className={active ? 'text-white/60' : 'text-muted/50'} />
@@ -151,20 +150,20 @@ const Layout = () => {
                 setShowAddModal(true);
                 setMobileMenuOpen(false);
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white rounded-full font-medium btn-scale shadow-md hover:shadow-lg touch-feedback"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-emerald text-white rounded-2xl font-medium btn-scale shadow-elevated hover:shadow-glow touch-feedback"
             >
               <Plus size={18} />
               <span>Nueva transacción</span>
             </button>
 
             {/* User info & Logout */}
-            <div className="pt-3 border-t border-border/50">
+            <div className="pt-3 border-t border-accent-emerald-100/50">
               <p className="text-xs text-muted truncate mb-2 px-1">
                 {user?.email}
               </p>
               <button
                 onClick={handleLogout}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-secondary hover:text-expense hover:bg-expense/5 rounded-xl font-medium transition-colors"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-secondary hover:text-expense hover:bg-orange-50 rounded-xl font-medium transition-colors"
               >
                 <LogOut size={16} />
                 <span>Cerrar sesión</span>

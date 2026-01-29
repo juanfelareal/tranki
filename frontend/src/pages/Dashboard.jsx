@@ -6,10 +6,10 @@ import { reportsAPI } from '../utils/api';
 import { formatCOP, formatCompact, formatRelativeDate, formatMonth, formatPercentageChange, getCurrentPeriod } from '../utils/formatters';
 import { useIsMobile } from '../hooks/useMediaQuery';
 
-// Paleta monocromática fintech
+// Emerald-based chart palette
 const CHART_COLORS = [
-  '#0A0A0A', '#1F2937', '#374151', '#4B5563',
-  '#6B7280', '#9CA3AF', '#D1D5DB', '#E5E7EB'
+  '#047857', '#059669', '#10B981', '#34D399',
+  '#6EE7B7', '#A7F3D0', '#475569', '#94A3B8'
 ];
 
 const Dashboard = () => {
@@ -77,15 +77,17 @@ const Dashboard = () => {
       {/* Stats Cards - Mobile optimized */}
       <div className="space-y-3 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-5">
         {/* Balance */}
-        <div className="relative overflow-hidden bg-gradient-balance text-white rounded-2xl p-4 sm:p-6 shadow-elevated">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+        <div className="relative overflow-hidden bg-gradient-balance-premium text-white rounded-2xl p-4 sm:p-6 shadow-premium">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent" />
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/5 rounded-full" />
+          <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white/5 rounded-full" />
           <div className="relative flex items-center justify-between sm:block">
             <div>
               <div className="flex items-center gap-2 mb-1 sm:mb-4">
                 <Wallet size={16} className="opacity-80" />
                 <span className="text-xs sm:text-sm font-medium opacity-80">Balance total</span>
               </div>
-              <p className="text-2xl sm:text-4xl font-bold tabular-nums tracking-tight">
+              <p className="text-2xl sm:text-4xl font-black tabular-nums tracking-tight">
                 {formatCompact(summary?.balance || 0)}
               </p>
             </div>
@@ -96,14 +98,14 @@ const Dashboard = () => {
         {/* Income & Expenses - Side by side on mobile */}
         <div className="grid grid-cols-2 gap-3 sm:contents">
           {/* Income */}
-          <div className="glass-card rounded-xl sm:rounded-2xl p-3 sm:p-6 card-hover border border-border/50">
+          <div className="glass-card-premium rounded-xl sm:rounded-2xl p-3 sm:p-6 card-hover border border-accent-emerald-100/50">
             <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
-              <div className="p-1.5 sm:p-2.5 bg-income/10 rounded-lg sm:rounded-xl">
+              <div className="p-1.5 sm:p-2.5 bg-accent-emerald-50 rounded-lg sm:rounded-xl">
                 <TrendingUp size={14} className="sm:w-[18px] sm:h-[18px] text-income" />
               </div>
               <span className="text-xs sm:text-sm font-medium text-muted">Ingresos</span>
             </div>
-            <p className="text-lg sm:text-3xl font-bold text-primary tabular-nums tracking-tight">
+            <p className="text-lg sm:text-3xl font-black text-primary tabular-nums tracking-tight">
               {formatCompact(summary?.income || 0)}
             </p>
             <p className="text-xs text-income flex items-center gap-1 mt-1 sm:mt-2">
@@ -114,14 +116,14 @@ const Dashboard = () => {
           </div>
 
           {/* Expenses */}
-          <div className="glass-card rounded-xl sm:rounded-2xl p-3 sm:p-6 card-hover border border-border/50">
+          <div className="glass-card-premium rounded-xl sm:rounded-2xl p-3 sm:p-6 card-hover border border-accent-emerald-100/50">
             <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
-              <div className="p-1.5 sm:p-2.5 bg-expense/10 rounded-lg sm:rounded-xl">
+              <div className="p-1.5 sm:p-2.5 bg-orange-50 rounded-lg sm:rounded-xl">
                 <TrendingDown size={14} className="sm:w-[18px] sm:h-[18px] text-expense" />
               </div>
               <span className="text-xs sm:text-sm font-medium text-muted">Gastos</span>
             </div>
-            <p className="text-lg sm:text-3xl font-bold text-primary tabular-nums tracking-tight">
+            <p className="text-lg sm:text-3xl font-black text-primary tabular-nums tracking-tight">
               {formatCompact(summary?.expenses || 0)}
             </p>
             <p className={`text-xs flex items-center gap-1 mt-1 sm:mt-2 ${
@@ -137,7 +139,7 @@ const Dashboard = () => {
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Category Breakdown */}
-        <div className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border/50">
+        <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-accent-emerald-100/50">
           <h3 className="font-semibold text-primary text-base sm:text-lg tracking-tight mb-3 sm:mb-5">Gastos por categoría</h3>
           {categoryData.length > 0 ? (() => {
             const totalExpenses = categoryData.reduce((sum, cat) => sum + cat.total, 0);
@@ -183,7 +185,7 @@ const Dashboard = () => {
                             {formatCompact(cat.total)}
                           </span>
                         </div>
-                        <div className="h-1 bg-black/5 rounded-full overflow-hidden ml-4">
+                        <div className="h-1 bg-accent-emerald-50 rounded-full overflow-hidden ml-4">
                           <div
                             className="h-full rounded-full transition-all duration-500"
                             style={{
@@ -206,7 +208,7 @@ const Dashboard = () => {
         </div>
 
         {/* Trend Chart */}
-        <div className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border/50">
+        <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-accent-emerald-100/50">
           <h3 className="font-semibold text-primary text-base sm:text-lg tracking-tight mb-3 sm:mb-5">Tendencia mensual</h3>
           {trendData.length > 0 ? (
             <div className={isMobile ? 'h-40' : 'h-44'}>
@@ -214,30 +216,30 @@ const Dashboard = () => {
                 <AreaChart data={trendData}>
                   <defs>
                     <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#0A0A0A" stopOpacity={0.2} />
-                      <stop offset="100%" stopColor="#0A0A0A" stopOpacity={0} />
+                      <stop offset="0%" stopColor="#10B981" stopOpacity={0.2} />
+                      <stop offset="100%" stopColor="#10B981" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="colorExpense" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#9CA3AF" stopOpacity={0.2} />
-                      <stop offset="100%" stopColor="#9CA3AF" stopOpacity={0} />
+                      <stop offset="0%" stopColor="#F97316" stopOpacity={0.2} />
+                      <stop offset="100%" stopColor="#F97316" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <XAxis
                     dataKey="month"
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 12, fill: '#A3A3A3' }}
+                    tick={{ fontSize: 12, fill: '#94A3B8' }}
                     tickFormatter={(value) => value.split('-')[1]}
                   />
                   <YAxis hide />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#0A0A0A',
+                      backgroundColor: '#0F172A',
                       border: 'none',
                       borderRadius: '12px',
                       fontSize: '12px',
                       padding: '8px 12px',
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
+                      boxShadow: '0 4px 20px rgba(5, 150, 105, 0.2)'
                     }}
                     labelStyle={{ color: '#fff', marginBottom: '4px' }}
                     formatter={(value) => formatCOP(value)}
@@ -245,7 +247,7 @@ const Dashboard = () => {
                   <Area
                     type="monotone"
                     dataKey="income"
-                    stroke="#0A0A0A"
+                    stroke="#10B981"
                     fill="url(#colorIncome)"
                     strokeWidth={2}
                     name="Ingresos"
@@ -253,7 +255,7 @@ const Dashboard = () => {
                   <Area
                     type="monotone"
                     dataKey="expense"
-                    stroke="#9CA3AF"
+                    stroke="#F97316"
                     fill="url(#colorExpense)"
                     strokeWidth={2}
                     name="Gastos"
@@ -270,12 +272,12 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Transactions */}
-      <div className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border/50">
+      <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-accent-emerald-100/50">
         <div className="flex items-center justify-between mb-3 sm:mb-5">
           <h3 className="font-semibold text-primary text-base sm:text-lg tracking-tight">Recientes</h3>
           <Link
             to="/transactions"
-            className="text-xs sm:text-sm text-muted hover:text-primary flex items-center gap-1 transition-colors touch-feedback"
+            className="text-xs sm:text-sm text-muted hover:text-accent-emerald-600 flex items-center gap-1 transition-colors touch-feedback"
           >
             Ver todas
             <ChevronRight size={14} />
@@ -286,7 +288,7 @@ const Dashboard = () => {
             {recentTransactions.slice(0, isMobile ? 3 : 5).map((tx, index) => (
               <div
                 key={tx.id}
-                className="flex items-center gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-black/[0.02] transition-colors animate-fadeIn list-item-touch"
+                className="flex items-center gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-accent-emerald-50/50 transition-colors animate-fadeIn list-item-touch"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div

@@ -226,7 +226,7 @@ const Accounts = () => {
           {accounts.length >= 2 && (
             <button
               onClick={openTransferModal}
-              className="flex items-center gap-2 px-5 py-2.5 bg-white/80 backdrop-blur-sm border border-border/50 rounded-full font-medium text-secondary hover:text-primary hover:border-primary transition-all duration-75"
+              className="flex items-center gap-2 px-5 py-2.5 bg-white/80 backdrop-blur-sm border border-accent-emerald-100/50 rounded-full font-medium text-secondary hover:text-primary hover:border-primary transition-all duration-75"
             >
               <ArrowRightLeft size={18} />
               <span className="hidden sm:inline">Transferir</span>
@@ -280,7 +280,7 @@ const Accounts = () => {
             return (
               <div
                 key={account.id}
-                className="glass-card border border-border/50 rounded-2xl p-5 card-hover animate-fadeIn"
+                className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-5 card-hover animate-fadeIn"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="flex items-center gap-5">
@@ -293,7 +293,7 @@ const Accounts = () => {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-1">
                       <p className="font-semibold text-lg text-primary truncate">{account.name}</p>
-                      <span className="px-2.5 py-1 text-xs font-medium bg-black/5 text-muted rounded-full">
+                      <span className="px-2.5 py-1 text-xs font-medium bg-accent-emerald-50 text-muted rounded-full">
                         {typeInfo.label}
                       </span>
                     </div>
@@ -306,7 +306,7 @@ const Accounts = () => {
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => openModal(account)}
-                      className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-black/5 transition-all duration-75"
+                      className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all duration-75"
                     >
                       <Edit2 size={18} />
                     </button>
@@ -323,7 +323,7 @@ const Accounts = () => {
           })}
         </div>
       ) : (
-        <div className="glass-card border border-border/50 rounded-2xl py-16 text-center">
+        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl py-16 text-center">
           <div className="text-5xl mb-4">🏦</div>
           <p className="text-lg font-medium text-primary">No hay cuentas</p>
           <p className="text-sm text-muted mt-1">Crea tu primera cuenta para empezar</p>
@@ -334,13 +334,13 @@ const Accounts = () => {
       {showModal && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden animate-fadeIn shadow-elevated">
-            <div className="flex items-center justify-between p-5 border-b border-border/50">
+            <div className="flex items-center justify-between p-5 border-b border-accent-emerald-100/50">
               <h2 className="text-lg font-semibold tracking-tight">
                 {editingAccount ? 'Editar cuenta' : 'Nueva cuenta'}
               </h2>
               <button
                 onClick={closeModal}
-                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-black/5 transition-all"
+                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all"
               >
                 <X size={20} />
               </button>
@@ -355,7 +355,7 @@ const Accounts = () => {
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   placeholder="Ej: Cuenta de ahorros Bancolombia"
-                  className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                   autoFocus
                 />
               </div>
@@ -373,8 +373,8 @@ const Accounts = () => {
                         onClick={() => setFormData(prev => ({ ...prev, type: type.value }))}
                         className={`flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all duration-75 ${
                           formData.type === type.value
-                            ? 'border-primary bg-primary/5 shadow-sm'
-                            : 'border-transparent bg-black/[0.02] hover:bg-black/[0.04]'
+                            ? 'border-primary bg-accent-emerald-50 shadow-sm'
+                            : 'border-transparent bg-accent-emerald-50/50 hover:bg-black/[0.04]'
                         }`}
                       >
                         <Icon size={20} className={formData.type === type.value ? 'text-primary' : 'text-muted'} />
@@ -397,7 +397,7 @@ const Accounts = () => {
                       className={`w-11 h-11 flex items-center justify-center text-xl rounded-xl transition-all duration-75 ${
                         formData.icon === icon
                           ? 'bg-primary text-white shadow-sm scale-105'
-                          : 'bg-black/[0.02] hover:bg-black/[0.05]'
+                          : 'bg-accent-emerald-50/50 hover:bg-black/[0.05]'
                       }`}
                     >
                       {icon}
@@ -441,14 +441,14 @@ const Accounts = () => {
                         setDisplayAmount
                       )}
                       placeholder="0"
-                      className="w-full pl-9 pr-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary tabular-nums transition-all"
+                      className="w-full pl-9 pr-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary tabular-nums transition-all"
                     />
                   </div>
                 </div>
               )}
 
               {/* Preview */}
-              <div className="flex items-center gap-4 p-4 bg-black/[0.02] rounded-xl">
+              <div className="flex items-center gap-4 p-4 bg-accent-emerald-50/50 rounded-xl">
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shadow-sm"
                   style={{ backgroundColor: `${formData.color}15` }}
@@ -475,7 +475,7 @@ const Accounts = () => {
                 <button
                   type="button"
                   onClick={closeModal}
-                  className="flex-1 py-3 border border-border/50 rounded-xl font-medium text-secondary hover:bg-black/[0.02] transition-all"
+                  className="flex-1 py-3 border border-accent-emerald-100/50 rounded-xl font-medium text-secondary hover:bg-accent-emerald-50/50 transition-all"
                 >
                   Cancelar
                 </button>
@@ -501,11 +501,11 @@ const Accounts = () => {
       {showTransferModal && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden animate-fadeIn shadow-elevated">
-            <div className="flex items-center justify-between p-5 border-b border-border/50">
+            <div className="flex items-center justify-between p-5 border-b border-accent-emerald-100/50">
               <h2 className="text-lg font-semibold tracking-tight">Transferir entre cuentas</h2>
               <button
                 onClick={() => setShowTransferModal(false)}
-                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-black/5 transition-all"
+                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all"
               >
                 <X size={20} />
               </button>
@@ -518,7 +518,7 @@ const Accounts = () => {
                 <select
                   value={transferData.from_account_id}
                   onChange={(e) => setTransferData(prev => ({ ...prev, from_account_id: e.target.value }))}
-                  className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 >
                   {accounts.map(acc => (
                     <option key={acc.id} value={acc.id}>
@@ -530,7 +530,7 @@ const Accounts = () => {
 
               {/* Arrow */}
               <div className="flex justify-center">
-                <div className="p-3 bg-black/5 rounded-full">
+                <div className="p-3 bg-accent-emerald-50 rounded-full">
                   <ArrowRightLeft size={20} className="text-muted rotate-90" />
                 </div>
               </div>
@@ -541,7 +541,7 @@ const Accounts = () => {
                 <select
                   value={transferData.to_account_id}
                   onChange={(e) => setTransferData(prev => ({ ...prev, to_account_id: e.target.value }))}
-                  className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 >
                   {accounts.map(acc => (
                     <option key={acc.id} value={acc.id}>
@@ -565,7 +565,7 @@ const Accounts = () => {
                       setTransferDisplayAmount
                     )}
                     placeholder="0"
-                    className="w-full pl-9 pr-4 py-3 text-xl font-semibold border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary tabular-nums transition-all"
+                    className="w-full pl-9 pr-4 py-3 text-xl font-semibold border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary tabular-nums transition-all"
                   />
                 </div>
               </div>
@@ -580,7 +580,7 @@ const Accounts = () => {
                   value={transferData.description}
                   onChange={(e) => setTransferData(prev => ({ ...prev, description: e.target.value }))}
                   placeholder="Ej: Ahorro del mes"
-                  className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
               </div>
 
@@ -596,7 +596,7 @@ const Accounts = () => {
                 <button
                   type="button"
                   onClick={() => setShowTransferModal(false)}
-                  className="flex-1 py-3 border border-border/50 rounded-xl font-medium text-secondary hover:bg-black/[0.02] transition-all"
+                  className="flex-1 py-3 border border-accent-emerald-100/50 rounded-xl font-medium text-secondary hover:bg-accent-emerald-50/50 transition-all"
                 >
                   Cancelar
                 </button>

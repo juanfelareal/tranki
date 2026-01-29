@@ -126,7 +126,7 @@ const AddTransactionModal = ({ isOpen, onClose, onSuccess }) => {
         {/* Manual Form */}
         <form onSubmit={handleManualSubmit} className="space-y-3">
           {/* Type selector - Inline compact */}
-          <div className="flex gap-2 p-0.5 bg-black/[0.03] rounded-lg">
+          <div className="flex gap-2 p-0.5 bg-accent-emerald-50/50 rounded-lg">
             <button
               type="button"
               onClick={() => setType('expense')}
@@ -162,7 +162,7 @@ const AddTransactionModal = ({ isOpen, onClose, onSuccess }) => {
                 value={displayAmount}
                 onChange={handleAmountChange}
                 placeholder="0"
-                className="w-full pl-8 pr-3 py-3 text-2xl font-bold border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary tabular-nums tracking-tight transition-all"
+                className="w-full pl-8 pr-3 py-3 text-2xl font-bold border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary tabular-nums tracking-tight transition-all"
                 autoFocus
               />
             </div>
@@ -178,7 +178,7 @@ const AddTransactionModal = ({ isOpen, onClose, onSuccess }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Descripción (opcional)"
-            className="w-full px-3 py-2.5 text-sm border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+            className="w-full px-3 py-2.5 text-sm border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
           />
 
           {/* Category, Date, Account - Compact row */}
@@ -188,7 +188,7 @@ const AddTransactionModal = ({ isOpen, onClose, onSuccess }) => {
               <select
                 value={categoryId}
                 onChange={(e) => setCategoryId(e.target.value)}
-                className="w-full px-2 py-2.5 text-sm border border-border/50 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                className="w-full px-2 py-2.5 text-sm border border-accent-emerald-100/50 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
               >
                 <option value="">Elegir...</option>
                 {filteredCategories.map(cat => (
@@ -204,7 +204,7 @@ const AddTransactionModal = ({ isOpen, onClose, onSuccess }) => {
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-2 py-2.5 text-sm border border-border/50 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                className="w-full px-2 py-2.5 text-sm border border-accent-emerald-100/50 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
               />
             </div>
             <div className="col-span-1">
@@ -212,7 +212,7 @@ const AddTransactionModal = ({ isOpen, onClose, onSuccess }) => {
               <select
                 value={accountId}
                 onChange={(e) => setAccountId(e.target.value)}
-                className="w-full px-2 py-2.5 text-sm border border-border/50 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                className="w-full px-2 py-2.5 text-sm border border-accent-emerald-100/50 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
               >
                 {accounts.map(acc => (
                   <option key={acc.id} value={acc.id}>

@@ -247,7 +247,7 @@ const SnowballDebt = () => {
           <h1 className="text-3xl font-bold text-primary tracking-tight">Deudas</h1>
           <p className="text-muted mt-1">Método bola de nieve</p>
         </div>
-        <div className="glass-card border border-border/50 rounded-2xl">
+        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl">
           <UpgradePrompt feature="Gestión de deudas" onUpgrade={upgrade} />
         </div>
       </div>
@@ -289,7 +289,7 @@ const SnowballDebt = () => {
       </div>
 
       {/* Info Card - Collapsible */}
-      <div className="glass-card border border-blue-200/50 bg-blue-50/30 rounded-2xl overflow-hidden">
+      <div className="glass-card-premium border border-blue-200/50 bg-blue-50/30 rounded-2xl overflow-hidden">
         <button
           onClick={toggleInfoCard}
           className="w-full px-5 py-4 flex items-center justify-between hover:bg-blue-50/50 transition-colors"
@@ -336,7 +336,7 @@ const SnowballDebt = () => {
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {/* Total Debt */}
-        <div className="glass-card border border-border/50 rounded-2xl p-6 card-hover">
+        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-6 card-hover">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2.5 bg-primary/10 rounded-xl">
               <Landmark size={18} className="text-primary" />
@@ -352,7 +352,7 @@ const SnowballDebt = () => {
         </div>
 
         {/* Total Paid */}
-        <div className="glass-card border border-border/50 rounded-2xl p-6 card-hover">
+        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-6 card-hover">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2.5 bg-income/10 rounded-xl">
               <Check size={18} className="text-income" />
@@ -368,7 +368,7 @@ const SnowballDebt = () => {
         </div>
 
         {/* Estimated Payoff */}
-        <div className="glass-card border border-border/50 rounded-2xl p-6 card-hover">
+        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-6 card-hover">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2.5 bg-accent-yellow/20 rounded-xl">
               <Target size={18} className="text-amber-600" />
@@ -386,12 +386,12 @@ const SnowballDebt = () => {
 
       {/* Progress Bar Global */}
       {summary?.total_original > 0 && (
-        <div className="glass-card border border-border/50 rounded-2xl p-5">
+        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-5">
           <div className="flex items-center justify-between mb-3">
             <span className="text-sm font-medium text-secondary">Progreso total</span>
             <span className="text-sm font-semibold text-primary">{summary?.progress_percentage || 0}%</span>
           </div>
-          <div className="h-3 bg-black/5 rounded-full overflow-hidden">
+          <div className="h-3 bg-accent-emerald-50 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-primary to-income rounded-full transition-all duration-500"
               style={{ width: `${summary?.progress_percentage || 0}%` }}
@@ -418,12 +418,12 @@ const SnowballDebt = () => {
             return (
               <div
                 key={debt.id}
-                className={`glass-card border rounded-2xl p-5 animate-fadeIn ${
+                className={`glass-card-premium border rounded-2xl p-5 animate-fadeIn ${
                   isPaidOff
                     ? 'border-income/30 bg-income/5'
                     : isActive
-                    ? 'border-primary/50 bg-primary/5'
-                    : 'border-border/50'
+                    ? 'border-primary/50 bg-accent-emerald-50'
+                    : 'border-accent-emerald-100/50'
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
@@ -434,7 +434,7 @@ const SnowballDebt = () => {
                       ? 'bg-income text-white'
                       : isActive
                       ? 'bg-primary text-white'
-                      : 'bg-black/5 text-muted'
+                      : 'bg-accent-emerald-50 text-muted'
                   }`}>
                     {isPaidOff ? (
                       <Check size={16} />
@@ -475,7 +475,7 @@ const SnowballDebt = () => {
 
                     {/* Progress bar */}
                     <div className="mb-3">
-                      <div className="h-2 bg-black/5 rounded-full overflow-hidden">
+                      <div className="h-2 bg-accent-emerald-50 rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full transition-all duration-500 ${
                             isPaidOff ? 'bg-income' : 'bg-primary'
@@ -524,7 +524,7 @@ const SnowballDebt = () => {
                     )}
                     <button
                       onClick={() => openDebtModal(debt)}
-                      className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-black/5 transition-all duration-75"
+                      className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all duration-75"
                     >
                       <Edit2 size={16} />
                     </button>
@@ -541,7 +541,7 @@ const SnowballDebt = () => {
           })}
         </div>
       ) : (
-        <div className="glass-card border border-border/50 rounded-2xl py-16 text-center">
+        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl py-16 text-center">
           <div className="text-5xl mb-4">🎯</div>
           <p className="text-lg font-medium text-primary">No hay deudas registradas</p>
           <p className="text-sm text-muted mt-1">Agrega tus deudas para comenzar el método bola de nieve</p>
@@ -552,13 +552,13 @@ const SnowballDebt = () => {
       {showDebtModal && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl w-full max-w-lg overflow-hidden animate-fadeIn shadow-elevated max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-5 border-b border-border/50 sticky top-0 bg-white">
+            <div className="flex items-center justify-between p-5 border-b border-accent-emerald-100/50 sticky top-0 bg-white">
               <h2 className="text-lg font-semibold tracking-tight">
                 {editingDebt ? 'Editar deuda' : 'Nueva deuda'}
               </h2>
               <button
                 onClick={() => setShowDebtModal(false)}
-                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-black/5 transition-all"
+                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all"
               >
                 <X size={20} />
               </button>
@@ -573,7 +573,7 @@ const SnowballDebt = () => {
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   placeholder="Ej: Tarjeta Bancolombia"
-                  className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                   autoFocus
                 />
               </div>
@@ -586,7 +586,7 @@ const SnowballDebt = () => {
                   value={formData.creditor}
                   onChange={(e) => setFormData(prev => ({ ...prev, creditor: e.target.value }))}
                   placeholder="Ej: Bancolombia, Davivienda, etc."
-                  className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
               </div>
 
@@ -601,7 +601,7 @@ const SnowballDebt = () => {
                       value={displayAmounts.original}
                       onChange={(e) => handleAmountChange(e.target.value, 'original_amount', 'original')}
                       placeholder="0"
-                      className="w-full pl-9 pr-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
+                      className="w-full pl-9 pr-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
                     />
                   </div>
                 </div>
@@ -614,7 +614,7 @@ const SnowballDebt = () => {
                       value={displayAmounts.current}
                       onChange={(e) => handleAmountChange(e.target.value, 'current_balance', 'current')}
                       placeholder="Igual al original"
-                      className="w-full pl-9 pr-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
+                      className="w-full pl-9 pr-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
                     />
                   </div>
                 </div>
@@ -631,7 +631,7 @@ const SnowballDebt = () => {
                       value={displayAmounts.minimum}
                       onChange={(e) => handleAmountChange(e.target.value, 'minimum_payment', 'minimum')}
                       placeholder="0"
-                      className="w-full pl-9 pr-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
+                      className="w-full pl-9 pr-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
                     />
                   </div>
                 </div>
@@ -644,7 +644,7 @@ const SnowballDebt = () => {
                     value={formData.due_day}
                     onChange={(e) => setFormData(prev => ({ ...prev, due_day: e.target.value }))}
                     placeholder="15"
-                    className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
+                    className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
                   />
                 </div>
                 <div>
@@ -656,7 +656,7 @@ const SnowballDebt = () => {
                     value={formData.interest_rate}
                     onChange={(e) => setFormData(prev => ({ ...prev, interest_rate: e.target.value }))}
                     placeholder="1.8"
-                    className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
+                    className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums transition-all"
                   />
                 </div>
               </div>
@@ -673,7 +673,7 @@ const SnowballDebt = () => {
                 <button
                   type="button"
                   onClick={() => setShowDebtModal(false)}
-                  className="flex-1 py-3 border border-border/50 rounded-xl font-medium text-secondary hover:bg-black/[0.02] transition-all"
+                  className="flex-1 py-3 border border-accent-emerald-100/50 rounded-xl font-medium text-secondary hover:bg-accent-emerald-50/50 transition-all"
                 >
                   Cancelar
                 </button>
@@ -699,14 +699,14 @@ const SnowballDebt = () => {
       {showPaymentModal && selectedDebt && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden animate-fadeIn shadow-elevated">
-            <div className="flex items-center justify-between p-5 border-b border-border/50">
+            <div className="flex items-center justify-between p-5 border-b border-accent-emerald-100/50">
               <div>
                 <h2 className="text-lg font-semibold tracking-tight">Registrar pago</h2>
                 <p className="text-sm text-muted">{selectedDebt.name}</p>
               </div>
               <button
                 onClick={() => setShowPaymentModal(false)}
-                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-black/5 transition-all"
+                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all"
               >
                 <X size={20} />
               </button>
@@ -714,7 +714,7 @@ const SnowballDebt = () => {
 
             <form onSubmit={handleSubmitPayment} className="p-5 space-y-4">
               {/* Current Balance Info */}
-              <div className="p-4 bg-black/[0.02] rounded-xl">
+              <div className="p-4 bg-accent-emerald-50/50 rounded-xl">
                 <p className="text-sm text-muted mb-1">Balance actual</p>
                 <p className="text-2xl font-bold text-primary tabular-nums">
                   {formatCOP(selectedDebt.current_balance)}
@@ -731,7 +731,7 @@ const SnowballDebt = () => {
                     value={displayAmounts.payment}
                     onChange={(e) => handlePaymentAmountChange(e.target.value)}
                     placeholder="0"
-                    className="w-full pl-9 pr-4 py-4 text-xl font-semibold border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-income/20 focus:border-income tabular-nums transition-all"
+                    className="w-full pl-9 pr-4 py-4 text-xl font-semibold border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-income/20 focus:border-income tabular-nums transition-all"
                     autoFocus
                   />
                 </div>
@@ -749,7 +749,7 @@ const SnowballDebt = () => {
                   type="date"
                   value={paymentData.date}
                   onChange={(e) => setPaymentData(prev => ({ ...prev, date: e.target.value }))}
-                  className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
               </div>
 
@@ -761,7 +761,7 @@ const SnowballDebt = () => {
                   value={paymentData.note}
                   onChange={(e) => setPaymentData(prev => ({ ...prev, note: e.target.value }))}
                   placeholder="Ej: Pago quincenal"
-                  className="w-full px-4 py-3 border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
               </div>
 
@@ -777,7 +777,7 @@ const SnowballDebt = () => {
                 <button
                   type="button"
                   onClick={() => setShowPaymentModal(false)}
-                  className="flex-1 py-3 border border-border/50 rounded-xl font-medium text-secondary hover:bg-black/[0.02] transition-all"
+                  className="flex-1 py-3 border border-accent-emerald-100/50 rounded-xl font-medium text-secondary hover:bg-accent-emerald-50/50 transition-all"
                 >
                   Cancelar
                 </button>
