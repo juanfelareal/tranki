@@ -44,7 +44,7 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
             'Bola de nieve (deudas)',
             'Actualizaciones futuras',
           ].map((item) => (
-            <div key={item} className="flex items-center gap-2 px-3 py-2 bg-accent-emerald-50 rounded-xl">
+            <div key={item} className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-xl">
               <div className="w-1.5 h-1.5 rounded-full bg-income flex-shrink-0" />
               <span className="text-xs text-secondary">{item}</span>
             </div>

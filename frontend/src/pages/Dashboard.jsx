@@ -98,9 +98,9 @@ const Dashboard = () => {
         {/* Income & Expenses - Side by side on mobile */}
         <div className="grid grid-cols-2 gap-3 sm:contents">
           {/* Income */}
-          <div className="glass-card-premium rounded-xl sm:rounded-2xl p-3 sm:p-6 card-hover border border-accent-emerald-100/50">
+          <div className="glass-card-premium rounded-xl sm:rounded-2xl p-3 sm:p-6 card-hover border border-gray-200/60">
             <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
-              <div className="p-1.5 sm:p-2.5 bg-accent-emerald-50 rounded-lg sm:rounded-xl">
+              <div className="p-1.5 sm:p-2.5 bg-gray-50 rounded-lg sm:rounded-xl">
                 <TrendingUp size={14} className="sm:w-[18px] sm:h-[18px] text-income" />
               </div>
               <span className="text-xs sm:text-sm font-medium text-muted">Ingresos</span>
@@ -116,7 +116,7 @@ const Dashboard = () => {
           </div>
 
           {/* Expenses */}
-          <div className="glass-card-premium rounded-xl sm:rounded-2xl p-3 sm:p-6 card-hover border border-accent-emerald-100/50">
+          <div className="glass-card-premium rounded-xl sm:rounded-2xl p-3 sm:p-6 card-hover border border-gray-200/60">
             <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
               <div className="p-1.5 sm:p-2.5 bg-orange-50 rounded-lg sm:rounded-xl">
                 <TrendingDown size={14} className="sm:w-[18px] sm:h-[18px] text-expense" />
@@ -139,7 +139,7 @@ const Dashboard = () => {
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Category Breakdown */}
-        <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-accent-emerald-100/50">
+        <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-gray-200/60">
           <h3 className="font-semibold text-primary text-base sm:text-lg tracking-tight mb-3 sm:mb-5">Gastos por categoría</h3>
           {categoryData.length > 0 ? (() => {
             const totalExpenses = categoryData.reduce((sum, cat) => sum + cat.total, 0);
@@ -185,7 +185,7 @@ const Dashboard = () => {
                             {formatCompact(cat.total)}
                           </span>
                         </div>
-                        <div className="h-1 bg-accent-emerald-50 rounded-full overflow-hidden ml-4">
+                        <div className="h-1 bg-gray-50 rounded-full overflow-hidden ml-4">
                           <div
                             className="h-full rounded-full transition-all duration-500"
                             style={{
@@ -208,7 +208,7 @@ const Dashboard = () => {
         </div>
 
         {/* Trend Chart */}
-        <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-accent-emerald-100/50">
+        <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-gray-200/60">
           <h3 className="font-semibold text-primary text-base sm:text-lg tracking-tight mb-3 sm:mb-5">Tendencia mensual</h3>
           {trendData.length > 0 ? (
             <div className={isMobile ? 'h-40' : 'h-44'}>
@@ -272,12 +272,12 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Transactions */}
-      <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-accent-emerald-100/50">
+      <div className="glass-card-premium rounded-xl sm:rounded-3xl p-4 sm:p-6 border border-gray-200/60">
         <div className="flex items-center justify-between mb-3 sm:mb-5">
           <h3 className="font-semibold text-primary text-base sm:text-lg tracking-tight">Recientes</h3>
           <Link
             to="/transactions"
-            className="text-xs sm:text-sm text-muted hover:text-accent-emerald-600 flex items-center gap-1 transition-colors touch-feedback"
+            className="text-xs sm:text-sm text-muted hover:text-emerald-600 flex items-center gap-1 transition-colors touch-feedback"
           >
             Ver todas
             <ChevronRight size={14} />
@@ -288,7 +288,7 @@ const Dashboard = () => {
             {recentTransactions.slice(0, isMobile ? 3 : 5).map((tx, index) => (
               <div
                 key={tx.id}
-                className="flex items-center gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-accent-emerald-50/50 transition-colors animate-fadeIn list-item-touch"
+                className="flex items-center gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-gray-50 transition-colors animate-fadeIn list-item-touch"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div

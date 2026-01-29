@@ -7,31 +7,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Premium emerald/mint palette
-        background: '#F0FDF4',
-        card: 'rgba(255, 255, 255, 0.85)',
+        // Warm cream base
+        background: '#FAFAF8',
+        card: '#FFFFFF',
 
         // Textos
         primary: '#0F172A',
         secondary: '#475569',
         muted: '#94A3B8',
 
-        // Accent system - Emerald
+        // Accent system - Emerald (used sparingly)
         accent: {
           emerald: {
-            50: '#ECFDF5',
-            100: '#D1FAE5',
-            200: '#A7F3D0',
-            300: '#6EE7B7',
-            400: '#34D399',
+            50: '#F0FDF4',
+            100: '#DCFCE7',
+            200: '#BBF7D0',
+            300: '#86EFAC',
+            400: '#4ADE80',
             500: '#10B981',
             600: '#059669',
             700: '#047857',
             800: '#065F46',
             900: '#064E3B',
           },
-          mint: '#F0FDF4',
-          teal: '#14B8A6',
           gold: '#F59E0B',
           coral: '#F97316',
         },
@@ -40,8 +38,8 @@ export default {
         income: '#10B981',
         expense: '#F97316',
 
-        // Bordes
-        border: '#E8F5F0',
+        // Bordes - neutros
+        border: '#E5E7EB',
 
         // Pro/Gold
         'pro-gold': '#F59E0B',
@@ -59,10 +57,10 @@ export default {
         tight: '-0.01em',
       },
       boxShadow: {
-        'soft': '0 2px 8px rgba(5, 150, 105, 0.06)',
-        'card': '0 1px 3px rgba(5, 150, 105, 0.08), 0 1px 2px rgba(5, 150, 105, 0.04)',
-        'elevated': '0 4px 20px rgba(5, 150, 105, 0.10)',
-        'premium': '0 8px 30px rgba(5, 150, 105, 0.12)',
+        'soft': '0 2px 8px rgba(0, 0, 0, 0.04)',
+        'card': '0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.03)',
+        'elevated': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'premium': '0 8px 30px rgba(0, 0, 0, 0.10)',
         'glow': '0 0 40px rgba(16, 185, 129, 0.20)',
         'glow-emerald': '0 0 60px rgba(16, 185, 129, 0.25)',
         'glow-expense': '0 0 40px rgba(249, 115, 22, 0.15)',

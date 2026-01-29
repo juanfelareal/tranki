@@ -90,7 +90,7 @@ const Reports = () => {
           <h1 className="text-3xl font-bold text-primary tracking-tight">Reportes</h1>
           <p className="text-muted mt-1">Análisis detallado de tus finanzas</p>
         </div>
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl">
           <UpgradePrompt feature="Reportes y analíticas" onUpgrade={upgrade} />
         </div>
       </div>
@@ -131,7 +131,7 @@ const Reports = () => {
         </div>
         <button
           onClick={exportData}
-          className="flex items-center gap-2 px-5 py-2.5 bg-white/80 backdrop-blur-sm border border-accent-emerald-100/50 rounded-full font-medium text-secondary hover:text-primary hover:border-primary btn-scale transition-all"
+          className="flex items-center gap-2 px-5 py-2.5 bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-full font-medium text-secondary hover:text-primary hover:border-primary btn-scale transition-all"
         >
           <Download size={16} />
           <span className="hidden sm:inline">Exportar CSV</span>
@@ -139,15 +139,15 @@ const Reports = () => {
       </div>
 
       {/* Period Selector */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-4 flex items-center justify-center gap-6">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl p-4 flex items-center justify-center gap-6">
         <button
           onClick={() => handlePeriodChange(-1)}
-          className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all duration-75"
+          className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-gray-50 transition-all duration-75"
         >
           <ChevronLeft size={20} />
         </button>
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-accent-emerald-50 rounded-xl">
+          <div className="p-2 bg-gray-50 rounded-xl">
             <Calendar size={18} className="text-primary" />
           </div>
           <span className="font-semibold text-primary text-lg capitalize tracking-tight">
@@ -156,7 +156,7 @@ const Reports = () => {
         </div>
         <button
           onClick={() => handlePeriodChange(1)}
-          className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all duration-75"
+          className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-gray-50 transition-all duration-75"
         >
           <ChevronRight size={20} />
         </button>
@@ -164,7 +164,7 @@ const Reports = () => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-6 card-hover">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl p-6 card-hover">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2.5 bg-income/10 rounded-xl">
               <TrendingUp size={18} className="text-income" />
@@ -176,7 +176,7 @@ const Reports = () => {
           </p>
         </div>
 
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-6 card-hover">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl p-6 card-hover">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2.5 bg-expense/10 rounded-xl">
               <TrendingDown size={18} className="text-expense" />
@@ -210,7 +210,7 @@ const Reports = () => {
       {/* Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Category Breakdown (Pie Chart) */}
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-6">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl p-6">
           <h3 className="font-semibold text-primary text-lg tracking-tight mb-5">Gastos por categoría</h3>
           {categoryData.length > 0 ? (() => {
             const totalExpenses = categoryData.reduce((sum, cat) => sum + cat.total, 0);
@@ -272,7 +272,7 @@ const Reports = () => {
                             {formatCompact(cat.total)}
                           </span>
                         </div>
-                        <div className="h-1 bg-accent-emerald-50 rounded-full overflow-hidden ml-4">
+                        <div className="h-1 bg-gray-50 rounded-full overflow-hidden ml-4">
                           <div
                             className="h-full rounded-full transition-all duration-500"
                             style={{
@@ -295,7 +295,7 @@ const Reports = () => {
         </div>
 
         {/* Monthly Comparison (Bar Chart) */}
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-6">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl p-6">
           <h3 className="font-semibold text-primary text-lg tracking-tight mb-5">Comparación mensual</h3>
           {trendData.length > 0 ? (
             <div className="h-44">
@@ -334,7 +334,7 @@ const Reports = () => {
         </div>
 
         {/* Trend Line */}
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-6 lg:col-span-2">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl p-6 lg:col-span-2">
           <h3 className="font-semibold text-primary text-lg tracking-tight mb-5">Tendencia anual</h3>
           {trendData.length > 0 ? (
             <div className="h-56">
@@ -408,8 +408,8 @@ const Reports = () => {
       </div>
 
       {/* Top Expenses */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 bg-gray-50/50">
           <h3 className="font-semibold text-primary text-lg tracking-tight">Mayores gastos del mes</h3>
         </div>
         {topExpenses.length > 0 ? (
@@ -417,10 +417,10 @@ const Reports = () => {
             {topExpenses.map((tx, idx) => (
               <div
                 key={tx.id}
-                className="px-6 py-4 flex items-center gap-4 hover:bg-accent-emerald-50/30 transition-all animate-fadeIn"
+                className="px-6 py-4 flex items-center gap-4 hover:bg-gray-50/50 transition-all animate-fadeIn"
                 style={{ animationDelay: `${idx * 30}ms` }}
               >
-                <span className="w-7 h-7 rounded-full bg-accent-emerald-50 flex items-center justify-center text-xs font-semibold text-muted">
+                <span className="w-7 h-7 rounded-full bg-gray-50 flex items-center justify-center text-xs font-semibold text-muted">
                   {idx + 1}
                 </span>
                 <div

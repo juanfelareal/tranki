@@ -151,8 +151,8 @@ const Categories = () => {
       </div>
 
       {/* Expense Categories */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 flex items-center gap-3 bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 flex items-center gap-3 bg-gray-50/50">
           <div className="p-2 bg-expense/10 rounded-xl">
             <TrendingDown size={18} className="text-expense" />
           </div>
@@ -165,7 +165,7 @@ const Categories = () => {
             return (
               <div
                 key={cat.id}
-                className="px-6 py-4 flex items-center gap-5 hover:bg-accent-emerald-50/30 transition-all animate-fadeIn"
+                className="px-6 py-4 flex items-center gap-5 hover:bg-gray-50/50 transition-all animate-fadeIn"
                 style={{ animationDelay: `${index * 30}ms` }}
               >
                 <div
@@ -183,7 +183,7 @@ const Categories = () => {
                 <div className="flex items-center gap-1">
                   <button
                     onClick={() => openModal(cat)}
-                    className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all duration-75"
+                    className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-gray-50 transition-all duration-75"
                   >
                     <Edit2 size={16} />
                   </button>
@@ -201,8 +201,8 @@ const Categories = () => {
       </div>
 
       {/* Income Categories */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 flex items-center gap-3 bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 flex items-center gap-3 bg-gray-50/50">
           <div className="p-2 bg-income/10 rounded-xl">
             <TrendingUp size={18} className="text-income" />
           </div>
@@ -215,7 +215,7 @@ const Categories = () => {
             return (
               <div
                 key={cat.id}
-                className="px-6 py-4 flex items-center gap-5 hover:bg-accent-emerald-50/30 transition-all animate-fadeIn"
+                className="px-6 py-4 flex items-center gap-5 hover:bg-gray-50/50 transition-all animate-fadeIn"
                 style={{ animationDelay: `${index * 30}ms` }}
               >
                 <div
@@ -233,7 +233,7 @@ const Categories = () => {
                 <div className="flex items-center gap-1">
                   <button
                     onClick={() => openModal(cat)}
-                    className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all duration-75"
+                    className="p-2.5 text-muted hover:text-primary rounded-xl hover:bg-gray-50 transition-all duration-75"
                   >
                     <Edit2 size={16} />
                   </button>
@@ -254,13 +254,13 @@ const Categories = () => {
       {showModal && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden animate-fadeIn shadow-elevated">
-            <div className="flex items-center justify-between p-5 border-b border-accent-emerald-100/50">
+            <div className="flex items-center justify-between p-5 border-b border-gray-200/60">
               <h2 className="text-lg font-semibold tracking-tight">
                 {editingCategory ? 'Editar categoría' : 'Nueva categoría'}
               </h2>
               <button
                 onClick={closeModal}
-                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-accent-emerald-50 transition-all"
+                className="p-2 text-muted hover:text-primary rounded-xl hover:bg-gray-50 transition-all"
               >
                 <X size={20} />
               </button>
@@ -268,7 +268,7 @@ const Categories = () => {
 
             <form onSubmit={handleSubmit} className="p-5 space-y-5">
               {/* Type */}
-              <div className="flex gap-2 p-1 bg-accent-emerald-50/50 rounded-xl">
+              <div className="flex gap-2 p-1 bg-gray-50 rounded-xl">
                 <button
                   type="button"
                   onClick={() => setFormData(prev => ({ ...prev, type: 'expense' }))}
@@ -303,7 +303,7 @@ const Categories = () => {
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   placeholder="Ej: Restaurantes"
-                  className="w-full px-4 py-3 border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  className="w-full px-4 py-3 border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                   autoFocus
                 />
               </div>
@@ -311,7 +311,7 @@ const Categories = () => {
               {/* Icon */}
               <div>
                 <label className="block text-sm font-medium text-muted mb-2">Ícono</label>
-                <div className="grid grid-cols-9 gap-1 max-h-36 overflow-y-auto p-2 bg-accent-emerald-50/50 rounded-xl">
+                <div className="grid grid-cols-9 gap-1 max-h-36 overflow-y-auto p-2 bg-gray-50 rounded-xl">
                   {ICONS.map(icon => (
                     <button
                       key={icon}
@@ -320,7 +320,7 @@ const Categories = () => {
                       className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all duration-75 ${
                         formData.icon === icon
                           ? 'bg-primary text-white shadow-sm scale-110'
-                          : 'hover:bg-accent-emerald-50'
+                          : 'hover:bg-gray-50'
                       }`}
                     >
                       {icon}
@@ -348,7 +348,7 @@ const Categories = () => {
               </div>
 
               {/* Preview */}
-              <div className="flex items-center gap-4 p-4 bg-accent-emerald-50/50 rounded-xl">
+              <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shadow-sm"
                   style={{ backgroundColor: `${formData.color}15` }}
@@ -375,7 +375,7 @@ const Categories = () => {
                 <button
                   type="button"
                   onClick={closeModal}
-                  className="flex-1 py-3 border border-accent-emerald-100/50 rounded-xl font-medium text-secondary hover:bg-accent-emerald-50/50 transition-all"
+                  className="flex-1 py-3 border border-gray-200/60 rounded-xl font-medium text-secondary hover:bg-gray-50 transition-all"
                 >
                   Cancelar
                 </button>

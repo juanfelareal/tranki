@@ -72,11 +72,11 @@ const Settings = () => {
       </div>
 
       {/* Subscription Section */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 bg-gray-50/50">
           <h3 className="font-semibold text-primary flex items-center gap-2.5">
-            <div className={`p-2 rounded-xl ${isPro ? 'bg-gradient-to-br from-amber-400 to-orange-500' : 'bg-accent-emerald-50'}`}>
-              <Crown size={16} className={isPro ? 'text-white' : 'text-accent-emerald-600'} />
+            <div className={`p-2 rounded-xl ${isPro ? 'bg-gradient-to-br from-amber-400 to-orange-500' : 'bg-gray-50'}`}>
+              <Crown size={16} className={isPro ? 'text-white' : 'text-emerald-600'} />
             </div>
             Tu plan
           </h3>
@@ -95,7 +95,7 @@ const Settings = () => {
                     <span className={`px-2.5 py-1 text-[10px] font-bold tracking-wider rounded-full ${
                       isPro
                         ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-white'
-                        : 'bg-accent-emerald-100 text-accent-emerald-700'
+                        : 'bg-emerald-100 text-emerald-700'
                     }`}>
                       {isPro ? 'PRO' : 'FREE'}
                     </span>
@@ -118,7 +118,7 @@ const Settings = () => {
               </div>
 
               {!isPro && (
-                <div className="mt-4 p-4 bg-accent-emerald-50 rounded-xl">
+                <div className="mt-4 p-4 bg-gray-50 rounded-xl">
                   <p className="text-sm font-medium text-primary mb-2">Con Pro desbloqueas (pago único de $40.000):</p>
                   <div className="grid grid-cols-2 gap-2">
                     {['Cuentas ilimitadas', 'Presupuestos', 'Reportes y analíticas', 'Bola de nieve (deudas)', 'Actualizaciones futuras'].map(feature => (
@@ -136,11 +136,11 @@ const Settings = () => {
       </div>
 
       {/* Profile Section */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 bg-gray-50/50">
           <h3 className="font-semibold text-primary flex items-center gap-2.5">
-            <div className="p-2 bg-accent-emerald-50 rounded-xl">
-              <User size={16} className="text-accent-emerald-600" />
+            <div className="p-2 bg-gray-50 rounded-xl">
+              <User size={16} className="text-emerald-600" />
             </div>
             Perfil
           </h3>
@@ -151,14 +151,14 @@ const Settings = () => {
             <input
               type="text"
               placeholder="Tu nombre"
-              className="w-full px-4 py-3 bg-white border-2 border-accent-emerald-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent-emerald-200 focus:border-accent-emerald-400 transition-all"
+              className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all"
             />
           </div>
           <div>
             <label className="block text-sm font-medium text-muted mb-2">Moneda</label>
             <select
               disabled
-              className="w-full px-4 py-3 border-2 border-accent-emerald-100 rounded-xl bg-accent-emerald-50/30 text-muted cursor-not-allowed"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-gray-50/50 text-muted cursor-not-allowed"
             >
               <option>COP - Peso Colombiano</option>
             </select>
@@ -171,8 +171,8 @@ const Settings = () => {
       </div>
 
       {/* Appearance */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 bg-gray-50/50">
           <h3 className="font-semibold text-primary flex items-center gap-2.5">
             <div className="p-2 bg-amber-50 rounded-xl">
               <Sun size={16} className="text-amber-600" />
@@ -186,7 +186,7 @@ const Settings = () => {
               <p className="font-medium text-primary">Tema</p>
               <p className="text-sm text-muted mt-0.5">Modo claro u oscuro</p>
             </div>
-            <div className="flex gap-1 p-1 bg-accent-emerald-50/50 rounded-xl">
+            <div className="flex gap-1 p-1 bg-gray-50 rounded-xl">
               <button
                 onClick={() => setTheme('light')}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-75 ${
@@ -212,7 +212,7 @@ const Settings = () => {
             </div>
           </div>
           {theme === 'dark' && (
-            <div className="mt-4 px-4 py-3 bg-accent-emerald-50 rounded-xl flex items-center gap-2 text-sm text-muted animate-fadeIn">
+            <div className="mt-4 px-4 py-3 bg-gray-50 rounded-xl flex items-center gap-2 text-sm text-muted animate-fadeIn">
               <Info size={14} />
               Modo oscuro próximamente
             </div>
@@ -221,16 +221,16 @@ const Settings = () => {
       </div>
 
       {/* Data */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 bg-gray-50/50">
           <h3 className="font-semibold text-primary flex items-center gap-2.5">
-            <div className="p-2 bg-accent-emerald-50 rounded-xl">
-              <Database size={16} className="text-accent-emerald-600" />
+            <div className="p-2 bg-gray-50 rounded-xl">
+              <Database size={16} className="text-emerald-600" />
             </div>
             Datos
           </h3>
         </div>
-        <div className="divide-y divide-accent-emerald-100/50">
+        <div className="divide-y divide-gray-200/60">
           {/* Export */}
           <div className="p-6 flex items-center justify-between">
             <div>
@@ -242,8 +242,8 @@ const Settings = () => {
               disabled={exporting}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all btn-scale ${
                 exportSuccess
-                  ? 'bg-accent-emerald-50 text-income'
-                  : 'bg-white/80 backdrop-blur-sm border border-accent-emerald-100 text-secondary hover:text-primary hover:border-accent-emerald-300'
+                  ? 'bg-gray-50 text-income'
+                  : 'bg-white/80 backdrop-blur-sm border border-gray-200 text-secondary hover:text-primary hover:border-emerald-300'
               }`}
             >
               {exportSuccess ? (
@@ -270,7 +270,7 @@ const Settings = () => {
             </div>
             <button
               disabled
-              className="flex items-center gap-2 px-5 py-2.5 border border-accent-emerald-100 rounded-full text-muted cursor-not-allowed"
+              className="flex items-center gap-2 px-5 py-2.5 border border-gray-200 rounded-full text-muted cursor-not-allowed"
             >
               <Upload size={16} />
               Próximamente
@@ -280,8 +280,8 @@ const Settings = () => {
       </div>
 
       {/* Cloud Sync */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 bg-gray-50/50">
           <h3 className="font-semibold text-primary flex items-center gap-2.5">
             <div className="p-2 bg-blue-50 rounded-xl">
               <Cloud size={16} className="text-blue-500" />
@@ -295,7 +295,7 @@ const Settings = () => {
               <p className="font-medium text-primary">Sincronización en la nube</p>
               <p className="text-sm text-muted mt-0.5">Accede a tus datos desde cualquier dispositivo</p>
             </div>
-            <span className="px-4 py-1.5 bg-accent-emerald-50 text-accent-emerald-700 text-xs font-medium rounded-full">
+            <span className="px-4 py-1.5 bg-gray-50 text-emerald-700 text-xs font-medium rounded-full">
               Próximamente
             </span>
           </div>
@@ -351,7 +351,7 @@ const Settings = () => {
               <div className="flex gap-3">
                 <button
                   onClick={() => setShowDeleteConfirm(false)}
-                  className="flex-1 py-3 border border-accent-emerald-100 rounded-xl font-medium text-secondary hover:bg-accent-emerald-50/50 transition-all"
+                  className="flex-1 py-3 border border-gray-200 rounded-xl font-medium text-secondary hover:bg-gray-50 transition-all"
                 >
                   Cancelar
                 </button>
@@ -370,7 +370,7 @@ const Settings = () => {
 
       {/* App Info */}
       <div className="text-center py-6">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-emerald-50 rounded-full mb-3">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full mb-3">
           <div className="w-6 h-6 rounded-lg bg-gradient-balance flex items-center justify-center">
             <span className="text-white text-xs font-bold">T</span>
           </div>

@@ -92,8 +92,8 @@ const Register = () => {
 
         <div className="flex-1 flex items-center justify-center px-4 pb-8 relative z-10">
           <div className="w-full max-w-md">
-            <div className="glass-card-premium rounded-3xl p-8 border border-accent-emerald-100/30 text-center">
-              <div className="w-20 h-20 bg-accent-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="glass-card-premium rounded-3xl p-8 border border-gray-200/60 text-center">
+              <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={40} className="text-income" />
               </div>
               <h1 className="text-2xl font-bold text-primary mb-3">¡Revisa tu correo!</h1>
@@ -148,7 +148,7 @@ const Register = () => {
           </div>
 
           {/* Form Card */}
-          <div className="glass-card-premium rounded-3xl p-8 border border-accent-emerald-100/30">
+          <div className="glass-card-premium rounded-3xl p-8 border border-gray-200/60">
             {/* Error Message */}
             {error && (
               <div className="mb-6 p-4 bg-orange-50 border border-orange-200 rounded-xl flex items-start gap-3">
@@ -172,7 +172,7 @@ const Register = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="tu@email.com"
                     required
-                    className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-accent-emerald-100 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent-emerald-200 focus:border-accent-emerald-400 transition-all"
+                    className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all"
                   />
                 </div>
               </div>
@@ -190,7 +190,7 @@ const Register = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
                     required
-                    className="w-full pl-12 pr-12 py-3.5 bg-white border-2 border-accent-emerald-100 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent-emerald-200 focus:border-accent-emerald-400 transition-all"
+                    className="w-full pl-12 pr-12 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all"
                   />
                   <button
                     type="button"
@@ -225,10 +225,10 @@ const Register = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="••••••••"
                     required
-                    className={`w-full pl-12 pr-4 py-3.5 bg-white border-2 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent-emerald-200 transition-all ${
+                    className={`w-full pl-12 pr-4 py-3.5 bg-white border-2 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-all ${
                       confirmPassword && password !== confirmPassword
                         ? 'border-expense focus:border-expense'
-                        : 'border-accent-emerald-100 focus:border-accent-emerald-400'
+                        : 'border-gray-200 focus:border-emerald-400'
                     }`}
                   />
                 </div>
@@ -257,15 +257,15 @@ const Register = () => {
             {/* Terms */}
             <p className="text-center text-xs text-muted mt-6">
               Al crear una cuenta, aceptas nuestros{' '}
-              <a href="#" className="text-accent-emerald-600 hover:underline">Términos de servicio</a>
+              <a href="#" className="text-emerald-600 hover:underline">Términos de servicio</a>
               {' '}y{' '}
-              <a href="#" className="text-accent-emerald-600 hover:underline">Política de privacidad</a>
+              <a href="#" className="text-emerald-600 hover:underline">Política de privacidad</a>
             </p>
 
             {/* Login Link */}
             <p className="text-center text-muted mt-6">
               ¿Ya tienes cuenta?{' '}
-              <Link to="/login" className="text-accent-emerald-600 font-medium hover:underline">
+              <Link to="/login" className="text-emerald-600 font-medium hover:underline">
                 Inicia sesión
               </Link>
             </p>
@@ -279,7 +279,7 @@ const Register = () => {
 const PasswordCheck = ({ passed, label }) => (
   <div className="flex items-center gap-2">
     <div className={`w-4 h-4 rounded-full flex items-center justify-center ${
-      passed ? 'bg-income' : 'bg-accent-emerald-100'
+      passed ? 'bg-income' : 'bg-emerald-100'
     }`}>
       {passed && <CheckCircle size={12} className="text-white" />}
     </div>

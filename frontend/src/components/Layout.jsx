@@ -57,7 +57,7 @@ const Layout = () => {
 
       {/* Mobile header - with safe area support */}
       <div
-        className="lg:hidden fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-b border-accent-emerald-100/50 z-40 flex items-center justify-between px-4"
+        className="lg:hidden fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-b border-gray-200/60 z-40 flex items-center justify-between px-4"
         style={{
           paddingTop: 'calc(var(--safe-area-top, 0px) + 8px)',
           height: 'calc(56px + var(--safe-area-top, 0px))'
@@ -65,7 +65,7 @@ const Layout = () => {
       >
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 text-muted hover:text-primary rounded-full hover:bg-accent-emerald-50 transition-all duration-75 touch-feedback touch-target"
+          className="p-2 text-muted hover:text-primary rounded-full hover:bg-gray-50 transition-all duration-75 touch-feedback touch-target"
         >
           {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -88,7 +88,7 @@ const Layout = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white/90 backdrop-blur-xl border-r border-accent-emerald-100/50 z-40 transform transition-transform duration-300 ease-out lg:translate-x-0 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white/90 backdrop-blur-xl border-r border-gray-200/60 z-40 transform transition-transform duration-300 ease-out lg:translate-x-0 ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -104,7 +104,7 @@ const Layout = () => {
             <span className={`px-2.5 py-1 text-[10px] font-bold tracking-wider rounded-full ${
               isPro
                 ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-white'
-                : 'bg-accent-emerald-100 text-accent-emerald-700'
+                : 'bg-emerald-100 text-emerald-700'
             }`}>
               {isPro ? 'PRO' : 'FREE'}
             </span>
@@ -125,10 +125,10 @@ const Layout = () => {
                       className={`group flex items-center gap-3 px-3 py-2.5 rounded-2xl text-sm font-medium transition-all duration-75 touch-feedback touch-target ${
                         active
                           ? 'bg-gradient-emerald text-white shadow-elevated'
-                          : 'text-secondary hover:bg-accent-emerald-50 hover:text-primary'
+                          : 'text-secondary hover:bg-gray-50 hover:text-primary'
                       }`}
                     >
-                      <Icon size={18} className={active ? '' : 'text-muted group-hover:text-accent-emerald-600'} />
+                      <Icon size={18} className={active ? '' : 'text-muted group-hover:text-emerald-600'} />
                       <span className="flex-1">{item.name}</span>
                       {showLock && (
                         <Lock size={12} className={active ? 'text-white/60' : 'text-muted/50'} />
@@ -157,7 +157,7 @@ const Layout = () => {
             </button>
 
             {/* User info & Logout */}
-            <div className="pt-3 border-t border-accent-emerald-100/50">
+            <div className="pt-3 border-t border-gray-200/60">
               <p className="text-xs text-muted truncate mb-2 px-1">
                 {user?.email}
               </p>

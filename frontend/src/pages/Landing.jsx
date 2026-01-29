@@ -25,28 +25,28 @@ const Landing = () => {
       icon: Tags,
       title: 'Categorías personalizadas',
       description: 'Crea y organiza categorías con íconos y colores a tu gusto.',
-      color: 'bg-accent-emerald-600',
+      color: 'bg-emerald-600',
       badge: null
     },
     {
       icon: PiggyBank,
       title: 'Presupuestos',
       description: 'Establece límites mensuales por categoría y controla tus gastos.',
-      color: 'bg-accent-emerald-700',
+      color: 'bg-emerald-700',
       badge: 'PRO'
     },
     {
       icon: BarChart3,
       title: 'Reportes visuales',
       description: 'Gráficos de tendencias, comparativas mensuales y análisis detallados.',
-      color: 'bg-accent-emerald-800',
+      color: 'bg-emerald-800',
       badge: 'PRO'
     },
     {
       icon: Landmark,
       title: 'Bola de nieve',
       description: 'Estrategia para pagar deudas más rápido y ahorrar en intereses.',
-      color: 'bg-accent-emerald-900',
+      color: 'bg-emerald-900',
       badge: 'PRO'
     }
   ];
@@ -105,15 +105,15 @@ const Landing = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Headline + CTAs */}
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-emerald-50 border border-accent-emerald-100 rounded-full mb-8 animate-fadeIn">
-              <div className="w-2 h-2 rounded-full bg-accent-emerald-500 animate-pulse" />
-              <span className="text-sm font-medium text-accent-emerald-700">Finanzas personales simplificadas</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full mb-8 animate-fadeIn">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-sm font-medium text-emerald-700">Finanzas personales simplificadas</span>
             </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-primary tracking-tight leading-[1.05] mb-6 animate-fadeIn" style={{ animationDelay: '100ms' }}>
               Controla tu dinero
               <br />
-              <span className="bg-gradient-to-r from-accent-emerald-700 via-accent-emerald-500 to-accent-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-700 via-emerald-500 to-emerald-400 bg-clip-text text-transparent">
                 sin estrés
               </span>
             </h1>
@@ -132,7 +132,7 @@ const Landing = () => {
               </Link>
               <a
                 href="#features"
-                className="flex items-center gap-2 px-6 py-4 text-secondary hover:text-accent-emerald-700 font-medium transition-colors"
+                className="flex items-center gap-2 px-6 py-4 text-secondary hover:text-emerald-700 font-medium transition-colors"
               >
                 Ver características
                 <ChevronRight size={18} />
@@ -159,7 +159,7 @@ const Landing = () => {
               {/* Floating income card */}
               <div className="absolute -bottom-6 -left-8 glass-card-premium rounded-2xl p-4 shadow-elevated animate-float" style={{ animationDelay: '0.5s' }}>
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-accent-emerald-50 rounded-xl">
+                  <div className="p-2 bg-gray-50 rounded-xl">
                     <TrendingUp size={16} className="text-income" />
                   </div>
                   <div>
@@ -187,7 +187,7 @@ const Landing = () => {
       </section>
 
       {/* Stats Row */}
-      <section className="relative z-10 px-6 py-12 border-y border-accent-emerald-100/50 bg-white/50 backdrop-blur-sm">
+      <section className="relative z-10 px-6 py-12 border-y border-gray-200/60 bg-white/50 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { value: '100%', label: 'Gratis para empezar' },
@@ -223,7 +223,7 @@ const Landing = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-7 card-hover animate-fadeIn relative"
+                className="glass-card-premium border border-gray-200/60 rounded-2xl p-7 card-hover animate-fadeIn relative"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {feature.badge && (
@@ -266,12 +266,12 @@ const Landing = () => {
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-accent-emerald-200 to-transparent -translate-x-8" />
+                  <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-emerald-200 to-transparent -translate-x-8" />
                 )}
                 <div className="text-center">
                   <div className="relative inline-block mb-6">
-                    <div className="w-20 h-20 bg-accent-emerald-50 rounded-2xl flex items-center justify-center">
-                      <step.icon size={32} className="text-accent-emerald-600" />
+                    <div className="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center">
+                      <step.icon size={32} className="text-emerald-600" />
                     </div>
                     <span className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-emerald text-white rounded-full flex items-center justify-center text-sm font-bold shadow-elevated">
                       {step.number}
@@ -304,9 +304,9 @@ const Landing = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Basic Plan */}
-            <div className="glass-card-premium border border-accent-emerald-100/50 rounded-3xl p-8 animate-fadeIn">
+            <div className="glass-card-premium border border-gray-200/60 rounded-3xl p-8 animate-fadeIn">
               <div className="mb-6">
-                <span className="px-3 py-1.5 text-xs font-bold tracking-wider rounded-full bg-accent-emerald-50 text-accent-emerald-700">
+                <span className="px-3 py-1.5 text-xs font-bold tracking-wider rounded-full bg-gray-50 text-emerald-700">
                   BÁSICO
                 </span>
               </div>
@@ -318,8 +318,8 @@ const Landing = () => {
               <ul className="space-y-3 mb-8">
                 {['Dashboard completo', 'Transacciones ilimitadas', '1 cuenta', 'Categorías personalizadas'].map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-accent-emerald-50 flex items-center justify-center flex-shrink-0">
-                      <Check size={12} className="text-accent-emerald-600" />
+                    <div className="w-5 h-5 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0">
+                      <Check size={12} className="text-emerald-600" />
                     </div>
                     <span className="text-secondary text-sm">{item}</span>
                   </li>
@@ -327,7 +327,7 @@ const Landing = () => {
               </ul>
               <Link
                 to="/register"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-accent-emerald-200 text-accent-emerald-700 rounded-2xl font-semibold hover:bg-accent-emerald-50 transition-colors btn-scale"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-emerald-200 text-emerald-700 rounded-2xl font-semibold hover:bg-gray-50 transition-colors btn-scale"
               >
                 Empezar gratis
               </Link>
@@ -349,7 +349,7 @@ const Landing = () => {
               <div className="mb-6">
                 <span className="text-5xl font-black text-primary tracking-tight">$40.000</span>
                 <span className="text-muted ml-2">COP</span>
-                <p className="text-sm text-accent-emerald-600 font-medium mt-1">Pago único de por vida</p>
+                <p className="text-sm text-emerald-600 font-medium mt-1">Pago único de por vida</p>
               </div>
               <p className="text-secondary mb-8">Todo lo básico más funcionalidades avanzadas.</p>
               <ul className="space-y-3 mb-8">
@@ -377,7 +377,7 @@ const Landing = () => {
       {/* CTA Section */}
       <section className="relative z-10 px-6 py-24">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="glass-card-premium border border-accent-emerald-100/50 rounded-3xl p-12 md:p-16 relative overflow-hidden">
+          <div className="glass-card-premium border border-gray-200/60 rounded-3xl p-12 md:p-16 relative overflow-hidden">
             <div className="absolute inset-0 gradient-radial-emerald opacity-30" />
             <div className="relative">
               <h2 className="text-4xl md:text-5xl font-bold text-primary tracking-tight mb-6">
@@ -402,7 +402,7 @@ const Landing = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 px-6 py-12 border-t border-accent-emerald-100/50 bg-white/50 backdrop-blur-sm">
+      <footer className="relative z-10 px-6 py-12 border-t border-gray-200/60 bg-white/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">

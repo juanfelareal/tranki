@@ -108,7 +108,7 @@ const Budgets = () => {
           <h1 className="text-3xl font-bold text-primary tracking-tight">Presupuesto</h1>
           <p className="text-muted mt-1">{formatMonth(month, year)}</p>
         </div>
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl">
           <UpgradePrompt feature="Presupuestos" onUpgrade={upgrade} />
         </div>
       </div>
@@ -217,8 +217,8 @@ const Budgets = () => {
       </div>
 
       {/* Category Budgets */}
-      <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-accent-emerald-100/50 flex items-center justify-between bg-accent-emerald-50/30">
+      <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200/60 flex items-center justify-between bg-gray-50/50">
           <h3 className="font-semibold text-primary">Presupuesto por categoría</h3>
           <span className="text-sm text-muted">
             {comparison.filter(c => c.budget).length} de {categories.length} configuradas
@@ -265,7 +265,7 @@ const Budgets = () => {
                           value={tempAmount}
                           onChange={(e) => setTempAmount(e.target.value)}
                           placeholder="0"
-                          className="w-28 px-3 py-1.5 text-sm border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums"
+                          className="w-28 px-3 py-1.5 text-sm border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 tabular-nums"
                           autoFocus
                         />
                         <button
@@ -276,7 +276,7 @@ const Budgets = () => {
                         </button>
                         <button
                           onClick={() => setEditingCategory(null)}
-                          className="p-1.5 text-muted hover:bg-accent-emerald-50 rounded-lg transition-all"
+                          className="p-1.5 text-muted hover:bg-gray-50 rounded-lg transition-all"
                         >
                           <X size={16} />
                         </button>
@@ -288,7 +288,7 @@ const Budgets = () => {
                         )}
                         <button
                           onClick={() => startEditCategory(category.id, budget)}
-                          className="p-2 text-muted hover:text-primary hover:bg-accent-emerald-50 rounded-xl transition-all duration-75"
+                          className="p-2 text-muted hover:text-primary hover:bg-gray-50 rounded-xl transition-all duration-75"
                         >
                           <Edit2 size={16} />
                         </button>
@@ -298,7 +298,7 @@ const Budgets = () => {
                 </div>
 
                 {/* Progress Bar */}
-                <div className="h-2 bg-accent-emerald-50 rounded-full overflow-hidden">
+                <div className="h-2 bg-gray-50 rounded-full overflow-hidden">
                   <div
                     className={`h-full transition-all rounded-full ${status.color}`}
                     style={{ width: budget ? `${percentage}%` : '0%' }}

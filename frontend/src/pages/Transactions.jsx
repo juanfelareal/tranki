@@ -171,7 +171,7 @@ const Transactions = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Buscar por descripción..."
-              className="w-full pl-11 pr-4 py-3 bg-white/80 backdrop-blur-sm border border-accent-emerald-100/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+              className="w-full pl-11 pr-4 py-3 bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
             />
           </div>
           <button
@@ -180,7 +180,7 @@ const Transactions = () => {
             className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all duration-75 ${
               hasActiveFilters
                 ? 'bg-primary text-white shadow-sm'
-                : 'bg-white/80 backdrop-blur-sm border border-accent-emerald-100/50 text-secondary hover:text-primary hover:border-primary'
+                : 'bg-white/80 backdrop-blur-sm border border-gray-200/60 text-secondary hover:text-primary hover:border-primary'
             }`}
           >
             <Filter size={18} />
@@ -193,7 +193,7 @@ const Transactions = () => {
 
         {/* Filter Panel */}
         {showFilters && (
-          <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl p-5 space-y-4 animate-fadeIn">
+          <div className="glass-card-premium border border-gray-200/60 rounded-2xl p-5 space-y-4 animate-fadeIn">
             <div className="flex items-center justify-between">
               <h3 className="font-semibold text-primary">Filtros</h3>
               {hasActiveFilters && (
@@ -214,7 +214,7 @@ const Transactions = () => {
                 <select
                   value={filters.type}
                   onChange={(e) => handleFilterChange('type', e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white border border-accent-emerald-100/50 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-3 py-2.5 bg-white border border-gray-200/60 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 >
                   <option value="">Todos</option>
                   <option value="income">Ingresos</option>
@@ -228,7 +228,7 @@ const Transactions = () => {
                 <select
                   value={filters.category_id}
                   onChange={(e) => handleFilterChange('category_id', e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white border border-accent-emerald-100/50 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-3 py-2.5 bg-white border border-gray-200/60 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 >
                   <option value="">Todas</option>
                   {categories.map(cat => (
@@ -246,7 +246,7 @@ const Transactions = () => {
                   type="date"
                   value={filters.start_date}
                   onChange={(e) => handleFilterChange('start_date', e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white border border-accent-emerald-100/50 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-3 py-2.5 bg-white border border-gray-200/60 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
               </div>
 
@@ -257,7 +257,7 @@ const Transactions = () => {
                   type="date"
                   value={filters.end_date}
                   onChange={(e) => handleFilterChange('end_date', e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white border border-accent-emerald-100/50 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-3 py-2.5 bg-white border border-gray-200/60 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                 />
               </div>
             </div>
@@ -267,7 +267,7 @@ const Transactions = () => {
 
       {/* Bulk Actions */}
       {selectedIds.length > 0 && (
-        <div className="flex items-center justify-between bg-accent-emerald-50 border border-primary/20 rounded-xl px-5 py-4 animate-fadeIn">
+        <div className="flex items-center justify-between bg-gray-50 border border-primary/20 rounded-xl px-5 py-4 animate-fadeIn">
           <span className="text-sm font-medium text-primary">
             {selectedIds.length} seleccionada{selectedIds.length !== 1 ? 's' : ''}
           </span>
@@ -284,9 +284,9 @@ const Transactions = () => {
 
       {/* Transactions List */}
       {transactions.length > 0 ? (
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl overflow-hidden">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl overflow-hidden">
           {/* Header */}
-          <div className="hidden sm:grid sm:grid-cols-12 gap-4 px-5 py-3 bg-accent-emerald-50/50 border-b border-accent-emerald-100/50 text-xs font-medium text-muted uppercase tracking-wide">
+          <div className="hidden sm:grid sm:grid-cols-12 gap-4 px-5 py-3 bg-gray-50 border-b border-gray-200/60 text-xs font-medium text-muted uppercase tracking-wide">
             <div className="col-span-1 flex items-center">
               <input
                 type="checkbox"
@@ -307,7 +307,7 @@ const Transactions = () => {
             {transactions.map((tx, index) => (
               <div
                 key={tx.id}
-                className={`grid grid-cols-12 gap-4 px-5 py-4 items-center hover:bg-accent-emerald-50/50 transition-all animate-fadeIn cursor-pointer ${
+                className={`grid grid-cols-12 gap-4 px-5 py-4 items-center hover:bg-gray-50 transition-all animate-fadeIn cursor-pointer ${
                   selectedIds.includes(tx.id) ? 'bg-primary/[0.03]' : ''
                 }`}
                 style={{ animationDelay: `${index * 30}ms` }}
@@ -380,7 +380,7 @@ const Transactions = () => {
           </div>
         </div>
       ) : (
-        <div className="glass-card-premium border border-accent-emerald-100/50 rounded-2xl py-16 text-center">
+        <div className="glass-card-premium border border-gray-200/60 rounded-2xl py-16 text-center">
           <div className="text-5xl mb-4">📝</div>
           <p className="text-lg font-medium text-primary">No hay transacciones</p>
           <p className="text-sm text-muted mt-1">

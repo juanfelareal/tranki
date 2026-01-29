@@ -83,7 +83,7 @@ const Login = () => {
           </div>
 
           {/* Form Card */}
-          <div className="glass-card-premium rounded-3xl p-8 border border-accent-emerald-100/30">
+          <div className="glass-card-premium rounded-3xl p-8 border border-gray-200/60">
             {/* Error Message */}
             {error && (
               <div className="mb-6 p-4 bg-orange-50 border border-orange-200 rounded-xl flex items-start gap-3">
@@ -107,7 +107,7 @@ const Login = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="tu@email.com"
                     required
-                    className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-accent-emerald-100 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent-emerald-200 focus:border-accent-emerald-400 transition-all"
+                    className="w-full pl-12 pr-4 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all"
                   />
                 </div>
               </div>
@@ -125,7 +125,7 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
                     required
-                    className="w-full pl-12 pr-12 py-3.5 bg-white border-2 border-accent-emerald-100 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent-emerald-200 focus:border-accent-emerald-400 transition-all"
+                    className="w-full pl-12 pr-12 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-primary placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all"
                   />
                   <button
                     type="button"
@@ -141,7 +141,7 @@ const Login = () => {
               <div className="text-right">
                 <Link
                   to="/forgot-password"
-                  className="text-sm text-accent-emerald-600 hover:text-accent-emerald-700 transition-colors"
+                  className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors"
                 >
                   ¿Olvidaste tu contraseña?
                 </Link>
@@ -167,7 +167,7 @@ const Login = () => {
             {/* Register Link */}
             <p className="text-center text-muted mt-8">
               ¿No tienes cuenta?{' '}
-              <Link to="/register" className="text-accent-emerald-600 font-medium hover:underline">
+              <Link to="/register" className="text-emerald-600 font-medium hover:underline">
                 Regístrate gratis
               </Link>
             </p>
