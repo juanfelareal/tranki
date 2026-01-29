@@ -78,7 +78,7 @@ const Settings = () => {
             <div className={`p-2 rounded-xl ${isPro ? 'bg-gradient-to-br from-amber-400 to-orange-500' : 'bg-primary/5'}`}>
               <Crown size={16} className={isPro ? 'text-white' : 'text-primary'} />
             </div>
-            Suscripción
+            Tu plan
           </h3>
         </div>
         <div className="p-6">
@@ -90,7 +90,7 @@ const Settings = () => {
                 <div>
                   <div className="flex items-center gap-2.5">
                     <p className="font-semibold text-lg text-primary">
-                      Plan {isPro ? 'Pro' : 'Gratuito'}
+                      Tranki {isPro ? 'Pro' : 'Básico'}
                     </p>
                     <span className={`px-2.5 py-1 text-[10px] font-bold tracking-wider rounded-full ${
                       isPro
@@ -101,7 +101,7 @@ const Settings = () => {
                     </span>
                   </div>
                   <p className="text-sm text-muted mt-0.5">
-                    {isPro ? 'Todas las funcionalidades desbloqueadas' : 'Funcionalidades básicas'}
+                    {isPro ? 'Todas las funcionalidades desbloqueadas' : 'Dashboard, transacciones, 1 cuenta'}
                   </p>
                 </div>
 
@@ -111,7 +111,7 @@ const Settings = () => {
                     className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-semibold btn-scale shadow-md hover:shadow-lg transition-all"
                   >
                     <Crown size={16} />
-                    Actualizar a Pro
+                    Desbloquear Pro — $20.000
                     <ArrowRight size={14} />
                   </button>
                 )}
@@ -119,7 +119,7 @@ const Settings = () => {
 
               {!isPro && (
                 <div className="mt-4 p-4 bg-black/[0.02] rounded-xl">
-                  <p className="text-sm font-medium text-primary mb-2">El plan Pro incluye:</p>
+                  <p className="text-sm font-medium text-primary mb-2">Con Pro desbloqueas (pago único de $20.000):</p>
                   <div className="grid grid-cols-2 gap-2">
                     {['Cuentas ilimitadas', 'Presupuestos', 'Reportes y analíticas', 'Bola de nieve (deudas)'].map(feature => (
                       <div key={feature} className="flex items-center gap-2">

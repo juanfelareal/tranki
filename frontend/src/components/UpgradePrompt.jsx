@@ -12,8 +12,8 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
       </h2>
 
       <p className="text-muted text-center max-w-sm mb-8">
-        <span className="font-medium text-secondary">{feature}</span> está disponible en el plan Pro.
-        Desbloquea todas las funcionalidades por solo <span className="font-semibold text-primary">$2.99 USD/mes</span>.
+        <span className="font-medium text-secondary">{feature}</span> está disponible con el complemento Pro.
+        Desbloquea todas las funcionalidades avanzadas por solo <span className="font-semibold text-primary">$20.000 COP</span> (pago único).
       </p>
 
       <div className="space-y-4 w-full max-w-xs">
@@ -22,13 +22,13 @@ const UpgradePrompt = ({ feature, onUpgrade }) => {
           className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-2xl font-semibold btn-scale shadow-md hover:shadow-lg transition-all"
         >
           <Crown size={18} />
-          Actualizar a Pro
+          Desbloquear Pro — $20.000
           <ArrowRight size={16} />
         </button>
 
         <div className="text-center">
           <p className="text-xs text-muted">
-            Compra segura a través de nuestra tienda.
+            Pago único. Acceso de por vida.
           </p>
         </div>
       </div>
